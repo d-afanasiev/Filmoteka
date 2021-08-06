@@ -17,11 +17,3 @@
   padding: 2px 6px;
   border-radius: 2px;
 }
-
-.example .background {
-  height: 240px;
-  // Путь к изображениям из SASS-файла всегда такой, как из папки css
-  background-image: url('../images/demo.jpg');
-  background-size: cover;
-  background-position: center;
-}
