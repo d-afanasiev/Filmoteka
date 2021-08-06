@@ -1,4 +1,4 @@
-# Parcel boilerplate
+# Filmoteka
 
 ## Скрытые файлы
 
