@@ -1,0 +1,21 @@
+.footer {
+  background-color: var(--footer-bg-color);
+  height: 77px;
+
+  display: flex;
+  align-items: center;
+}
+
+.footer__licence-text {
+  display: flex;
+  justify-content: center;
+
+  font-weight: 400;
+  font-size: 16px;
+
+  color: var(--footer-text-color);
+}
+
+.footer__licence-text > svg {
+  margin: 0 5px;
+}
