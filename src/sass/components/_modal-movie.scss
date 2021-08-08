@@ -1,4 +1,5 @@
 .backdrop {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,11 +16,11 @@
   }
 }
 
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: visible;
-}
+// .backdrop.is-hidden {
+//     opacity: 0;
+//     pointer-events: none;
+//     visibility: visible;
+//   }
 
 //   .backdrop.is-hidden .modal {
 //     transform: translate( -50%, -50%) scale(0.9);
