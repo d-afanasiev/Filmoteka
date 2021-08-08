@@ -1,0 +1,120 @@
+.header {
+  height: 230px;
+
+  @media screen and (min-width: 320px) {
+    width: auto;
+    padding: 0 20px;
+    background-image: url('/images/Home 320.jpg');
+  }
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    padding: 0 70px;
+    background-image: url('/images/Home 768.jpg');
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: auto;
+    padding: 0 70px;
+    background-image: url('/images/Home 1024.jpg');
+  }
+}
+
+.header__nav-menu {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.header__site-logo-block {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+
+  margin-top: 40px;
+}
+
+.header__site-name {
+  color: var(--main-color);
+  margin: 0;
+  font-weight: 500;
+  font-size: 30px;
+
+  @media screen and (min-width: 320px) and (max-device-width: 400px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+
+.header__button {
+  background-color: transparent;
+  color: var(--main-color);
+
+  border: none;
+}
+
+.header__button:hover,
+.header__button:focus {
+  border: 1px solid var(--main-color);
+  border-radius: 2px;
+}
+
+.header__button::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background-color: var(--secondary-text-color);
+}
+
+.header__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: auto;
+  height: 35%;
+}
+
+.header__input {
+  display: flex;
+  align-items: center;
+  height: 20px;
+
+  position: relative;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--main-color) 1px solid;
+
+  @media screen and (min-width: 320px) {
+    width: 85%;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 30%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+  }
+}
+
+.header__input::placeholder {
+  color: var(--main-color);
+}
+
+.header__input-icon {
+  position: absolute;
+  right: 38%;
+
+  @media screen and (min-width: 320px) and (max-device-width: 767px) {
+    right: 12%;
+  }
+}
