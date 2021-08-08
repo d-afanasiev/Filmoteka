@@ -4,19 +4,19 @@
   @media screen and (min-width: 320px) {
     width: auto;
     padding: 0 20px;
-    background-image: url('/images/Home 320.jpg');
+    background-image: url('/images/Home\ 320.jpg');
   }
 
   @media screen and (min-width: 768px) {
     width: auto;
     padding: 0 70px;
-    background-image: url('/images/Home 768.jpg');
+    background-image: url('//src/images/Home\ 768.jpg');
   }
 
   @media screen and (min-width: 1024px) {
     width: auto;
     padding: 0 70px;
-    background-image: url('/images/Home 1024.jpg');
+    background-image: url('/src/images/Library\ 1024.jpg');
   }
 }
 
