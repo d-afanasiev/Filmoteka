@@ -1,5 +1,6 @@
 
 const homeButtonEl = document.querySelector('.home-button');
+
 const myLibraryButtonEl = document.querySelector('.my-library-button');
 
 const headerEl = document.querySelector('#header');
@@ -26,4 +27,13 @@ function transitToMyLibraryPage() {
     myLibraryButtonEl.classList.add('header__link--active');
     headerFormEl.classList.remove('header__form');
     headerFormEl.classList.add('header__form-disable');
+    console.log("Home-page open");
+}
+
+const myLibraryButtonEl = document.querySelector('.my-library-button');
+
+myLibraryButtonEl.addEventListener("click", transitToMyLibraryPage);
+
+function transitToMyLibraryPage() {
+    console.log("My-Library-page open");
 }
