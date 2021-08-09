@@ -1,4 +1,4 @@
-import "./transitToMain.js";
+import './transitToMain.js';
 
 // // Spinner usage:
 // import Spinner from './utils/spinner';
