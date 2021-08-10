@@ -11,9 +11,16 @@ p {
   padding: 20px 0 40px;
 }
 .film-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+
   &__item {
     width: 280px;
     transition: transform 250ms linear;
+
+    padding: 10px 10px 15px 10px;
 
     &:hover,
     &:focus {

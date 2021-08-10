@@ -35,9 +35,9 @@ function noPicture(el){
 }
 
 search.addEventListener('input', debounce(searchFilm, 500));
-const spinner = new Spinner();
+const spinner = new Spinner("film-list");
 
-spinner.show("film-list")
+spinner.show()
 fetchTrendFilm().then((r) => {
     r.results.map(el => {
     genresIdConverter(el);
@@ -45,11 +45,11 @@ fetchTrendFilm().then((r) => {
     noPicture(el);
 })
     filmList.innerHTML = hbs(r.results)
-    spinner.hide("film-list")
+    spinner.hide()
 })
 
 async function searchFilm(e) {
-    spinner.show("film-list")
+    spinner.show()
     if (!e.target.value) {
         await fetchTrendFilm().then((r) => {
             r.results.map(el => {
@@ -58,17 +58,17 @@ async function searchFilm(e) {
                 noPicture(el)
                 })
             filmList.innerHTML = hbs(r.results)
-            spinner.hide("film-list")
+            spinner.hide()
         return
     })
     }else if ( e.target.value.length > 0 && e.target.value.trim().length < 3) {
         Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.')
-        spinner.hide("film-list")
+        spinner.hide()
     } else {
         await fetchSearchFilm(e.target.value.trim()).then(r => {
             if (r.total_results === 0) {
                 Notiflix.Notify.failure('Invalid name entered. Try again')
-                spinner.hide("film-list")
+                spinner.hide()
             } else {
                 r.results.map(el => {
                     genresIdConverter(el);
@@ -77,7 +77,7 @@ async function searchFilm(e) {
                 })
                 filmList.innerHTML = hbs(r.results);
                 Notiflix.Notify.success('Successful search')
-                spinner.hide("film-list")
+                spinner.hide()
             }
         })
     }
