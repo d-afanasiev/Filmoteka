@@ -40,4 +40,4 @@ const e=document.querySelector(".home-button"),t=document.querySelector(".my-lib
 },{"./transitToMain.js":"l1wz"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/renderMainPage"),require("./js/main");
 },{"./sass/main.scss":"clu1","./js/renderMainPage":"zrqp","./js/main":"d6sW"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.b85e19c2.js.map
+//# sourceMappingURL=/Filmoteka/src.381c1b56.js.map
