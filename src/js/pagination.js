@@ -3,13 +3,16 @@
 import  Pagination  from 'tui-pagination';
 
 const container = document.getElementById('tui-pagination-container');
+
+const itemsPerPage = 20;
+
 const options = {
 
       // Total number of items
       totalItems: 1000,
 
       // Items per page
-      itemsPerPage: 20,
+      itemsPerPage: itemsPerPage,
 
       // Visible pages
       visiblePages: 5,
@@ -25,13 +28,11 @@ const options = {
       lastItemClassName: 'tui-last-child',
 
       // enable usage statistics
-      usageStatistics: true
+      usageStatistics: true,
       
 }
 
 const myPagination = new Pagination(container, options);
 
-
-// console.log(myPagination.init.prototype.fire);
 
 export default {}
