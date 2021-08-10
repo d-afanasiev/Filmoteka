@@ -1,0 +1,23 @@
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: #fff;
+  background: var(--secondary-text-color);
+  border-color: var(--secondary-text-color);
+  cursor: default;
+}
+
+.tui-pagination .tui-is-selected:hover {
+  background-color: var(--secondary-text-color);
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+  border-left: 1px solid var(--secondary-text-color);
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+  border-right: 1px solid var(--secondary-text-color);
+}
+
+.tui-page-inputs .tui-page-current {
+  color: var(--secondary-text-color);
+}
