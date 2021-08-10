@@ -7,9 +7,15 @@ const headerFormEl = document.querySelector('#header-form');
 
 const libraryButtonsBlockEl = document.querySelector('#library-buttons-block');
 
+const logoBlockEl = document.querySelector('#logo-block');
+
+headerEl.classList.remove('header-my-library');
+libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
+
 homeButtonEl.addEventListener("click", transitToHomePage);
 
 function transitToHomePage() {
+
     headerEl.classList.remove('header-my-library');
     headerEl.classList.add('header-home');
     homeButtonEl.classList.add('header__link--active');
@@ -23,6 +29,7 @@ function transitToHomePage() {
 myLibraryButtonEl.addEventListener("click", transitToMyLibraryPage);
 
 function transitToMyLibraryPage() {
+
     headerEl.classList.remove('header-home');
     headerEl.classList.add('header-my-library');
     homeButtonEl.classList.remove('header__link--active');
@@ -32,3 +39,5 @@ function transitToMyLibraryPage() {
     libraryButtonsBlockEl.classList.remove('library-buttons-block-disable');
     libraryButtonsBlockEl.classList.add('library-buttons-block');
 }
+
+logoBlockEl.addEventListener('click', transitToHomePage);
