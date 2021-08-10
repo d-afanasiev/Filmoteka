@@ -6,7 +6,7 @@ const container = document.getElementById('tui-pagination-container');
 
 const itemsPerPage = 20;
 
-const options = {
+const optionsForPagination = {
 
       // Total number of items
       totalItems: 1000,
@@ -28,11 +28,24 @@ const options = {
       lastItemClassName: 'tui-last-child',
 
       // enable usage statistics
-      usageStatistics: true,
-      
-}
+      usageStatistics: false
+};
 
-const myPagination = new Pagination(container, options);
+// export const myPagination = new Pagination(container, optionsForPagination);
 
+// myPagination.on('beforeMove', function(eventData) {
+//   var currentPage = eventData.page;
+
+//   if (currentPage === 10) {
+// //     return false;
+// //     return true;
+//         console.log('yeah');
+//   }
+// });
+
+myPagination.on('afterMove', function (eventData) {
+  var currentPage = eventData.page;
+  console.log(currentPage);
+});
 
 export default {}
