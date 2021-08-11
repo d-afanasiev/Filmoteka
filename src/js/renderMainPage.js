@@ -44,40 +44,48 @@ function noPicture(el) {
 }
 
 search.addEventListener('input', debounce(searchFilm, 500));
-const spinner = new Spinner('film-list');
 
-spinner.show();
-fetchTrendFilm().then(r => {
-  r.results.map(el => {
-    genresIdConverter(el);
-    sliceDate(el);
-    noPicture(el);
-  });
-  filmList.innerHTML = hbs(r.results);
-  spinner.hide();
+export function renderFilm() {
+  const spinner = new Spinner('film-list');
 
-  //*for pagination*
-  opt.totalItems = r.total_results;
-  opt.page = r.page;
-  pagination();
-  if (r.total_results > opt.itemsPerPage) {
-    setContainerHidden(false);
-    myPagination.on('afterMove', function (eventData) {
-      pageNumber = eventData.page;
-      fetchTrendFilm().then(r => {
-        r.results.map(el => {
-          genresIdConverter(el);
-          sliceDate(el);
-          noPicture(el);
-        });
+  filmList.innerHTML = '';
 
-        filmList.innerHTML = hbs(r.results);
-        spinner.hide();
-      });
+  spinner.show();
+  console.log(pageNumber);
+  fetchTrendFilm().then(r => {
+    r.results.map(el => {
+      genresIdConverter(el);
+      sliceDate(el);
+      noPicture(el);
     });
-  }
-  //*
-});
+    filmList.innerHTML = hbs(r.results);
+    spinner.hide();
+
+    //*for pagination*
+    opt.totalItems = r.total_results;
+    opt.page = r.page;
+    pagination();
+    if (r.total_results > opt.itemsPerPage) {
+      setContainerHidden(false);
+      myPagination.on('afterMove', function (eventData) {
+        pageNumber = eventData.page;
+        fetchTrendFilm().then(r => {
+          r.results.map(el => {
+            genresIdConverter(el);
+            sliceDate(el);
+            noPicture(el);
+          });
+
+          filmList.innerHTML = hbs(r.results);
+          spinner.hide();
+        });
+      });
+    }
+    //*
+  });
+}
+
+renderFilm();
 
 async function searchFilm(e) {
   try {

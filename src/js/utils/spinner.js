@@ -26,7 +26,7 @@ class Spinner {
     // zindex	1000	number
     // Changes the z-index.
 
-    backgroundColor = 'rgba(255,255,255,0)',
+    backgroundColor = 'rgba(255,255,255,0.9)',
     // backgroundColor	rgba(255,255,255,0.9)	string
     // Changes the background color. You can use HEX, RGB or RGBA.
 
