@@ -126,5 +126,6 @@ async function searchFilm(e) {
     }
   } catch (error) {
     console.log(error);
+    spinner.hide();
   }
 }
