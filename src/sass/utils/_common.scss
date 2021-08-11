@@ -49,9 +49,13 @@ button {
 
   @media screen and (min-width: 768px) {
     width: 768px;
+    padding-left: 65px;
+    padding-right: 65px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 1024px;
+    padding-left: 71px;
+    padding-right: 71px;
   }
 }
