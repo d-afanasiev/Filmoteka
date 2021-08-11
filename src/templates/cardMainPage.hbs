@@ -1,10 +1,10 @@
 
 {{#each this}}
         <li class="film-list__item">
-            
-        {{!-- <a class="film-list__link" href="#"> --}}
+
+        <a class="film-list__link" href="#">
             <div class="film-list__thumb">
-                <img data-id="{{id}}" class="film-list__img" src="{{poster_path}}" alt="{{original_title}} >
+                <img data-id="{{id}}" class="film-list__img" src="{{poster_path}}" alt="{{original_title}}" >
             </div>
             <div class="film-list__info">
                 <h3 class="film-list__title">{{original_title}}</h3>
@@ -12,6 +12,6 @@
                 {{genre_ids}} | {{release_date}}
                 </p>
             </div>
-        {{!-- </a> --}}
+        </a>
         </li>
 {{/each}}

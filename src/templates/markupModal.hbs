@@ -1,9 +1,7 @@
 
-{{#each this }}
+
      <div class="movie-container">
-               <div>
-                  <img src="{{poster_path}}" alt="{{title}}">
-               </div>
+                  <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
             </div>
 
             <div>
@@ -20,7 +18,7 @@
                     </ul>
 
                     <ul>
-                      <li> 
+                      <li>
                          <span>{{vote_average}}</span>
                          <span>/</span>
                          <span>{{vote_count}}</span>
@@ -30,16 +28,16 @@
 
                       <li>{{original_title}}</li>
 
-                      <li> 
+                      <li>
                            {{#each genres }}
                              <span>{{this.name}}</span>
                            {{/each}}
-                         
+
                          </li>
                     </ul>
                 </div>
 
-                               
+
                 <h3>About</h3>
 
                 <p>{{overview}}</p>
@@ -51,4 +49,3 @@
                 </div>
 
 
-{{/each}}
