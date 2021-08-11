@@ -1,0 +1,81 @@
+import axios from 'axios';
+import markup from '../templates/markupModal.hbs';
+
+
+const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
+
+
+  const  filmList = document.querySelector('.film-list')
+  const modalMuvie = document.querySelector('.modal__template')
+  const modalWindow = document.querySelector('.lightbox')
+  const closeBtn = document.querySelector('.modal__button')
+
+ function fetchMovieId (movieId){
+    const url = `${BASE_URL}${movieId}?api_key=${API_KEY}&language=en-US`;
+
+    const response =  axios.get(url)
+
+    return response
+} 
+
+
+filmList.addEventListener('click', onClick)
+
+function onClick(e){
+   
+ if( e.target === document.querySelectorAll('.film-list__img')) {
+    console.log(e.target)
+ };
+     
+
+  if (e.target.nodeName !== 'IMG') {
+    return;
+  }
+
+
+  const activeImg = e.target;
+  
+  const movieId = activeImg.dataset.id
+  
+  fetchMovieId(movieId)
+  
+  openModal();
+
+  
+}
+
+
+function openModal(e){
+    closeModal()
+    
+       
+    
+    
+    modalWindow.classList.add('is-open');
+    // window.addEventListener('keydown', onCloseModalKey )
+}
+
+
+closeBtn.addEventListener('click', closeModal )
+modalWindow.addEventListener('click', onCloseModalWindow);
+
+function closeModal(){
+    modalWindow.classList.remove('is-open');
+
+ };
+
+ function onCloseModalWindow (evt) {
+  
+    if ( evt.target.dataset.action === "close-lightbox" || evt.target.className === 'lightbox__overlay') {
+     closeModal()
+    };
+    // onCloseModalKey ();
+   };
+
+//    function onCloseModalKey (evt){
+  
+//     if (evt.key === "Escape") {
+//        closeModal()
+//     }
+//    };
