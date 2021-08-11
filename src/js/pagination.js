@@ -2,9 +2,9 @@
 
 import  Pagination  from 'tui-pagination';
 
-const container = document.getElementById('tui-pagination-container');
-
-const itemsPerPage = 20;
+export const container = document.getElementById('tui-pagination-container');
+export const itemsPerPage = 20;
+export const setContainerHidden = (arg) => { container.hidden = arg; };
 
 const optionsForPagination = {
 
@@ -15,7 +15,7 @@ const optionsForPagination = {
       itemsPerPage: itemsPerPage,
 
       // Visible pages
-      visiblePages: 5,
+      visiblePages: 10,
 
       // Current page
       page: 1,
@@ -30,6 +30,14 @@ const optionsForPagination = {
       // enable usage statistics
       usageStatistics: false
 };
+export const opt = optionsForPagination;
+
+export let myPagination;
+
+export function pagination() {
+     myPagination = new Pagination(container, opt);
+    return myPagination;
+};
 
 // export const myPagination = new Pagination(container, optionsForPagination);
 
@@ -43,9 +51,9 @@ const optionsForPagination = {
 //   }
 // });
 
-myPagination.on('afterMove', function (eventData) {
-  var currentPage = eventData.page;
-  console.log(currentPage);
-});
+// myPagination.on('afterMove', function (eventData) {
+//   var currentPage = eventData.page;
+//   console.log(currentPage);
+// });
 
-export default {}
+// export default {}
