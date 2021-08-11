@@ -5,6 +5,17 @@ import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
 import genreList from './genreList';
 import Spinner from './utils/spinner';
 
+            //*for pagination*
+import Pagination from 'tui-pagination';
+import { opt } from './pagination';
+import { pagination } from './pagination';
+import { myPagination } from './pagination';
+import { setContainerHidden } from './pagination';
+export let pageNumber = 1;
+setContainerHidden(true);
+            //*
+
+
 const filmList = document.querySelector('.film-list');
 const search = document.querySelector(".header__form");
 
@@ -46,39 +57,65 @@ fetchTrendFilm().then((r) => {
 })
     filmList.innerHTML = hbs(r.results)
     spinner.hide()
+
+        //*for pagination*
+        opt.totalItems = r.total_results;
+        opt.page = r.page;
+        pagination()
+            if (r.total_results > opt.itemsPerPage) {
+                setContainerHidden(false);
+                myPagination.on('afterMove', function (eventData) {
+                    pageNumber = eventData.page;
+                    fetchTrendFilm().then((r) => {
+                        r.results.map(el => {
+                        genresIdConverter(el);
+                        sliceDate(el);
+                        noPicture(el);
+                        })
+
+                        filmList.innerHTML = hbs(r.results)
+                        spinner.hide()
+                    })    
+                });
+            };
+        //*
 })
 
 async function searchFilm(e) {
-    spinner.show()
-    if (!e.target.value) {
-        await fetchTrendFilm().then((r) => {
-            r.results.map(el => {
-                genresIdConverter(el);
-                sliceDate(el);
-                noPicture(el)
-                })
-            filmList.innerHTML = hbs(r.results)
-            spinner.hide()
-        return
-    })
-    }else if ( e.target.value.length > 0 && e.target.value.trim().length < 3) {
-        Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.')
-        spinner.hide()
-    } else {
-        await fetchSearchFilm(e.target.value.trim()).then(r => {
-            if (r.total_results === 0) {
-                Notiflix.Notify.failure('Invalid name entered. Try again')
-                spinner.hide()
-            } else {
+    try {
+            spinner.show()
+        if (!e.target.value) {
+            await fetchTrendFilm().then((r) => {
                 r.results.map(el => {
                     genresIdConverter(el);
                     sliceDate(el);
                     noPicture(el)
-                })
-                filmList.innerHTML = hbs(r.results);
-                Notiflix.Notify.success('Successful search')
+                    })
+                filmList.innerHTML = hbs(r.results)
                 spinner.hide()
-            }
+            return
         })
+        }else if ( e.target.value.length > 0 && e.target.value.trim().length < 3) {
+            Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.')
+            spinner.hide()
+        } else {
+            await fetchSearchFilm(e.target.value.trim()).then(r => {
+                if (r.total_results === 0) {
+                    Notiflix.Notify.failure('Invalid name entered. Try again')
+                    spinner.hide()
+                } else {
+                    r.results.map(el => {
+                        genresIdConverter(el);
+                        sliceDate(el);
+                        noPicture(el)
+                    })
+                    filmList.innerHTML = hbs(r.results);
+                    Notiflix.Notify.success('Successful search')
+                    spinner.hide()
+                }
+            })
+        }
+    } catch (error) {
+        console.log(error);
     }
 }

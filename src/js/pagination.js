@@ -2,17 +2,20 @@
 
 import  Pagination  from 'tui-pagination';
 
-const container = document.getElementById('tui-pagination-container');
-const options = {
+export const container = document.getElementById('tui-pagination-container');
+export const itemsPerPage = 20;
+export const setContainerHidden = (arg) => { container.hidden = arg; };
+
+const optionsForPagination = {
 
       // Total number of items
       totalItems: 1000,
 
       // Items per page
-      itemsPerPage: 20,
+      itemsPerPage: itemsPerPage,
 
       // Visible pages
-      visiblePages: 5,
+      visiblePages: 10,
 
       // Current page
       page: 1,
@@ -25,13 +28,32 @@ const options = {
       lastItemClassName: 'tui-last-child',
 
       // enable usage statistics
-      usageStatistics: true
-      
-}
+      usageStatistics: false
+};
+export const opt = optionsForPagination;
 
-const myPagination = new Pagination(container, options);
+export let myPagination;
 
+export function pagination() {
+     myPagination = new Pagination(container, opt);
+    return myPagination;
+};
 
-// console.log(myPagination.init.prototype.fire);
+// export const myPagination = new Pagination(container, optionsForPagination);
 
-export default {}
+// myPagination.on('beforeMove', function(eventData) {
+//   var currentPage = eventData.page;
+
+//   if (currentPage === 10) {
+// //     return false;
+// //     return true;
+//         console.log('yeah');
+//   }
+// });
+
+// myPagination.on('afterMove', function (eventData) {
+//   var currentPage = eventData.page;
+//   console.log(currentPage);
+// });
+
+// export default {}
