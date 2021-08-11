@@ -51,7 +51,6 @@ export function renderFilm() {
   filmList.innerHTML = '';
 
   spinner.show();
-  console.log(pageNumber);
   fetchTrendFilm().then(r => {
     r.results.map(el => {
       genresIdConverter(el);
