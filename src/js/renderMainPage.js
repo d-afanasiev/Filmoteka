@@ -89,6 +89,7 @@ renderFilm();
 
 async function searchFilm(e) {
   try {
+    const spinner = new Spinner('film-list');
     spinner.show();
     if (!e.target.value) {
       await fetchTrendFilm().then(r => {
