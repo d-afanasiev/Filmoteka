@@ -1,6 +1,8 @@
 .header-home {
   height: 230px;
   background-size: cover;
+  padding-top: 46px;
+  padding-bottom: 59px;
 
   @media screen and (min-width: 320px) {
     background-image: url('../images/Home-320.jpg');
@@ -40,6 +42,8 @@
 .header-my-library {
   height: 230px;
   background-size: cover;
+  padding-top: 46px;
+  padding-bottom: 59px;
 
   @media screen and (min-width: 320px) {
     background-image: url('../images/Library-320.jpg');
@@ -80,6 +84,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 41px;
 }
 
 .header__site-logo-block {
@@ -87,21 +92,21 @@
   flex-direction: row;
   align-items: baseline;
 
-  margin-top: 40px;
   text-decoration: none;
 }
 
-.header__site-logo-block:hover,
-.header__site-logo-block:focus {
-  border-bottom: 1px solid var(--main-color);
-  border-radius: 2px;
-}
+// .header__site-logo-block:hover,
+// .header__site-logo-block:focus {
+//   border-bottom: 1px solid var(--main-color);
+//   border-radius: 2px;
+// }
 
 .header__site-name {
   color: var(--main-color);
   margin: 0;
   font-weight: 500;
   font-size: 30px;
+  margin-left: 10px;
 
   @media screen and (min-width: 320px) and (max-width: 500px) {
     display: none;
@@ -121,13 +126,11 @@
 }
 
 .header__link-item {
-  margin: 5px;
+  margin-left: 39px;
 }
 
 .header__link {
   display: block;
-
-  padding: 10px;
 
   background-color: transparent;
   color: var(--main-color);
@@ -144,14 +147,14 @@
   border-bottom: none;
 }
 
-.header__link:hover,
-.header__link:focus {
-  border: 1px solid var(--main-color);
-  border-radius: 2px;
+// .header__link:hover,
+// .header__link:focus {
+//   border: 1px solid var(--main-color);
+//   border-radius: 2px;
 
-  border-right: none;
-  border-bottom: none;
-}
+//   border-right: none;
+//   border-bottom: none;
+// }
 
 .header__link--active::after {
   content: '';
@@ -166,8 +169,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding-top: 20px;
 }
 
 .header__form-disable {
@@ -184,17 +185,18 @@
   border-bottom: var(--main-color) 1px solid;
 
   color: var(--main-color);
+  outline: none;
 
   @media screen and (min-width: 320px) {
-    width: 85%;
+    width: 100%;
   }
 
   @media screen and (min-width: 768px) {
-    width: 30%;
+    width: 56%;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 30%;
+    width: 38%;
   }
 }
 
@@ -207,15 +209,13 @@
   left: -2%;
 
   @media screen and (min-width: 320px) and (max-device-width: 767px) {
-    right: 12%;
+    left: -5%;
   }
 }
 
 .library-buttons-block {
   display: flex;
   justify-content: center;
-
-  padding-top: 20px;
 }
 
 .library-buttons-block-disable {

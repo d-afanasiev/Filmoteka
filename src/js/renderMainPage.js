@@ -5,80 +5,126 @@ import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
 import genreList from './genreList';
 import Spinner from './utils/spinner';
 
-const filmList = document.querySelector('.film-list');
-const search = document.querySelector(".header__form");
+//*for pagination*
+import Pagination from 'tui-pagination';
+import { opt } from './pagination';
+import { pagination } from './pagination';
+import { myPagination } from './pagination';
+import { setContainerHidden } from './pagination';
+export let pageNumber = 1;
+setContainerHidden(true);
+//*
 
+const filmList = document.querySelector('.film-list');
+const search = document.querySelector('.header__form');
 
 function genresIdConverter(el) {
-    el.genre_ids = el.genre_ids
+  el.genre_ids = el.genre_ids
     .map(genreID => (genreID = genreList[genreID]))
     .slice(0, 2)
-        .join(', ');
-    
+    .join(', ');
+
   return el;
 }
 
 function sliceDate(el) {
-    if (!el.release_date) {
-        return el.release_date
-    } else {
-        return el.release_date = el.release_date.slice(0, -6);
-    }
+  if (!el.release_date) {
+    return el.release_date;
+  } else {
+    return (el.release_date = el.release_date.slice(0, -6));
+  }
 }
 
-function noPicture(el){
-    if (!el.poster_path) {
-        return el.poster_path = `https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png`
-    } else {
-        return el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-    }
+function noPicture(el) {
+  if (!el.poster_path) {
+    return (el.poster_path = `https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png`);
+  } else {
+    return (el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`);
+  }
 }
 
 search.addEventListener('input', debounce(searchFilm, 500));
-const spinner = new Spinner();
 
-spinner.show("film-list")
-fetchTrendFilm().then((r) => {
+export function renderFilm() {
+  const spinner = new Spinner('film-list');
+
+  filmList.innerHTML = '';
+
+  spinner.show();
+  fetchTrendFilm().then(r => {
     r.results.map(el => {
-    genresIdConverter(el);
-    sliceDate(el);
-    noPicture(el);
-})
-    filmList.innerHTML = hbs(r.results)
-    spinner.hide("film-list")
-})
+      genresIdConverter(el);
+      sliceDate(el);
+      noPicture(el);
+    });
+    filmList.innerHTML = hbs(r.results);
+    spinner.hide();
+
+    //*for pagination*
+    opt.totalItems = r.total_results;
+    opt.page = r.page;
+    pagination();
+    if (r.total_results > opt.itemsPerPage) {
+      setContainerHidden(false);
+      myPagination.on('afterMove', function (eventData) {
+        spinner.show();
+        pageNumber = eventData.page;
+        fetchTrendFilm().then(r => {
+          r.results.map(el => {
+            genresIdConverter(el);
+            sliceDate(el);
+            noPicture(el);
+          });
+
+          filmList.innerHTML = hbs(r.results);
+          spinner.hide();
+        });
+      });
+    }
+    //*
+  });
+}
+
+renderFilm();
 
 async function searchFilm(e) {
-    spinner.show("film-list")
+  try {
+    const spinner = new Spinner('film-list');
+    spinner.show();
     if (!e.target.value) {
-        await fetchTrendFilm().then((r) => {
-            r.results.map(el => {
-                genresIdConverter(el);
-                sliceDate(el);
-                noPicture(el)
-                })
-            filmList.innerHTML = hbs(r.results)
-            spinner.hide("film-list")
-        return
-    })
-    }else if ( e.target.value.length > 0 && e.target.value.trim().length < 3) {
-        Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.')
-        spinner.hide("film-list")
+      await fetchTrendFilm().then(r => {
+        r.results.map(el => {
+          genresIdConverter(el);
+          sliceDate(el);
+          noPicture(el);
+        });
+        filmList.innerHTML = hbs(r.results);
+        spinner.hide();
+        return;
+      });
+    } else if (e.target.value.length > 0 && e.target.value.trim().length < 3) {
+      Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
+      spinner.hide();
     } else {
-        await fetchSearchFilm(e.target.value.trim()).then(r => {
-            if (r.total_results === 0) {
-                Notiflix.Notify.failure('Invalid name entered. Try again')
-                spinner.hide("film-list")
-            } else {
-                r.results.map(el => {
-                    genresIdConverter(el);
-                    sliceDate(el);
-                    noPicture(el)
-                })
-                filmList.innerHTML = hbs(r.results);
-                Notiflix.Notify.success('Successful search')
-                spinner.hide("film-list")
-            }
-        })
+      await fetchSearchFilm(e.target.value.trim()).then(r => {
+        if (r.total_results === 0) {
+          Notiflix.Notify.failure(
+            'Search result not successful. Enter the correct movie name and ',
+          );
+          spinner.hide();
+        } else {
+          r.results.map(el => {
+            genresIdConverter(el);
+            sliceDate(el);
+            noPicture(el);
+          });
+          filmList.innerHTML = hbs(r.results);
+          Notiflix.Notify.success('Successful search');
+          spinner.hide();
+        }
+      });
     }
+  } catch (error) {
+    console.log(error);
+  }
 }

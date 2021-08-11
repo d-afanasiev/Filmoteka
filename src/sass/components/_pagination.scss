@@ -1,9 +1,9 @@
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: #fff;
+  //   color: #fff;
   background: var(--secondary-text-color);
   border-color: var(--secondary-text-color);
-  cursor: default;
+  //   cursor: default;
 }
 
 .tui-pagination .tui-is-selected:hover {
@@ -20,4 +20,8 @@
 
 .tui-page-inputs .tui-page-current {
   color: var(--secondary-text-color);
+}
+
+.tui-pagination {
+  margin: 0 0 60px;
 }

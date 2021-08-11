@@ -8,11 +8,21 @@ p {
 }
 
 .films {
-  padding: 20px 0 40px;
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
 .film-list {
-  &__item {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__link {
+    display: block;
     width: 280px;
+    // padding: 10px 10px 15px 10px;
+  }
+
+  &__item {
+    min-height: 480px;
     transition: transform 250ms linear;
 
     &:hover,
@@ -58,8 +68,14 @@ p {
 
 @media screen and (min-width: 768px) {
   .film-list {
-    &__item {
+    &__link {
       width: 294px;
+    }
+    &__item {
+      margin-right: 30px;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
     }
     &__thumb {
       height: 398px;
@@ -68,8 +84,17 @@ p {
 }
 @media screen and (min-width: 1024px) {
   .film-list {
-    &__item {
+    &__link {
       width: 274px;
+    }
+    &__item {
+      &:nth-child(2n) {
+        margin-right: 30px;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
     }
   }
 }

@@ -31,3 +31,4 @@ import './transitToMain.js';
 // setTimeout(() => {
 //   footerSpinner.hide();
 // }, 3000);
+
