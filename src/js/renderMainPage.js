@@ -67,6 +67,7 @@ export function renderFilm() {
     if (r.total_results > opt.itemsPerPage) {
       setContainerHidden(false);
       myPagination.on('afterMove', function (eventData) {
+        spinner.show();
         pageNumber = eventData.page;
         fetchTrendFilm().then(r => {
           r.results.map(el => {
