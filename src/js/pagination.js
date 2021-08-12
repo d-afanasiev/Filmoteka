@@ -1,5 +1,3 @@
-'use strict';
-
 import Pagination from 'tui-pagination';
 
 export const container = document.getElementById('tui-pagination-container');
