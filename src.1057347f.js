@@ -107,4 +107,4 @@ module.exports=require("./lib/axios");
 },{"axios":"dZBD","../templates/markupModal.hbs":"p19z"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/main"),require("./js/modal"),require("./js/renderMainPage");
 },{"./sass/main.scss":"clu1","./js/main":"d6sW","./js/modal":"RSqK","./js/renderMainPage":"zrqp"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.fe55c2ac.js.map
+//# sourceMappingURL=/Filmoteka/src.1057347f.js.map
