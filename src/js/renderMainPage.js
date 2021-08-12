@@ -46,51 +46,53 @@ function noPicture(el) {
 search.addEventListener('input', debounce(searchFilm, 500));
 
 export function renderFilm() {
-  const spinner = new Spinner('film-list');
+  const spinner = new Spinner({ message: 'Loading....' });
 
   filmList.innerHTML = '';
   pageNumber = 1;
 
   spinner.show();
-  fetchTrendFilm().then(r => {
-    r.results.map(el => {
-      genresIdConverter(el);
-      sliceDate(el);
-      noPicture(el);
-    });
-    filmList.innerHTML = hbs(r.results);
-    spinner.hide();
-
-    //*for pagination*
-    opt.totalItems = r.total_results;
-    opt.page = r.page;
-    pagination();
-    if (r.total_results > opt.itemsPerPage) {
-      setContainerHidden(false);
-      myPagination.on('afterMove', function (eventData) {
-        spinner.show();
-        pageNumber = eventData.page;
-        fetchTrendFilm().then(r => {
-          r.results.map(el => {
-            genresIdConverter(el);
-            sliceDate(el);
-            noPicture(el);
-          });
-
-          filmList.innerHTML = hbs(r.results);
-          spinner.hide();
-        });
+  fetchTrendFilm()
+    .then(r => {
+      r.results.map(el => {
+        genresIdConverter(el);
+        sliceDate(el);
+        noPicture(el);
       });
-    }
-    //*
-  });
+      filmList.innerHTML = hbs(r.results);
+
+      //*for pagination*
+      opt.totalItems = r.total_results;
+      opt.page = r.page;
+      pagination();
+      if (r.total_results > opt.itemsPerPage) {
+        setContainerHidden(false);
+        myPagination.on('afterMove', function (eventData) {
+          pageNumber = eventData.page;
+          fetchTrendFilm().then(r => {
+            r.results.map(el => {
+              genresIdConverter(el);
+              sliceDate(el);
+              noPicture(el);
+            });
+
+            filmList.innerHTML = hbs(r.results);
+          });
+        });
+      }
+      //*
+    })
+    .catch(error =>
+      Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
+    )
+    .finally(() => spinner.hide());
 }
 
 renderFilm();
 
 async function searchFilm(e) {
   try {
-    const spinner = new Spinner('film-list');
+    const spinner = new Spinner({ message: 'Loading....' });
     spinner.show();
     if (!e.target.value) {
       await fetchTrendFilm().then(r => {
