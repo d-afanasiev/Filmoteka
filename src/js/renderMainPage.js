@@ -128,7 +128,7 @@ async function searchFilm(e) {
       });
     }
   } catch (error) {
-    console.log(error);
+    Notiflix.Notify.failure(error);
     spinner.hide();
   }
 }
