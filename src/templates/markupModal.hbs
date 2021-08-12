@@ -30,7 +30,7 @@
 
                       <li>
                            {{#each genres }}
-                             <span>{{this.name}}</span>
+                             <span>{{this.name}}{{#unless @last}},{{/unless}}</span>
                            {{/each}}
 
                          </li>
