@@ -1,5 +1,6 @@
 
 const API_KEY = "4e286c2ceeb7113ef3a7d57d0bdb7157";
+import axios from "axios";  
 
 
 export async function fetchSearchFilm(value) {
@@ -13,6 +14,7 @@ export async function fetchTrendFilm() {
     const filmsData = await(response.json())
     return filmsData
 }
+
 
 
 
