@@ -105,15 +105,14 @@ async function searchFilm(e) {
         spinner.hide();
         return;
       });
-    } else if (e.target.value.length > 0 && e.target.value.trim().length < 3) {
-      Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
-      spinner.hide();
     } else {
       await fetchSearchFilm(e.target.value.trim()).then(r => {
         if (r.total_results === 0) {
           Notiflix.Notify.failure(
             'Search result not successful. Enter the correct movie name and ',
           );
+          filmList.innerHTML = '';
+          setContainerHidden(true);
           spinner.hide();
         } else {
           r.results.map(el => {
