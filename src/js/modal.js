@@ -42,7 +42,7 @@ function openModal(e) {
   closeModal();
   modalMovie.innerHTML = '';
   modalWindow.classList.add('is-open');
-  // window.addEventListener('keydown', onCloseModalKey )
+  window.addEventListener('keydown', onCloseModalKey);
 }
 
 closeBtn.addEventListener('click', closeModal);
@@ -61,12 +61,11 @@ function onCloseModalWindow(evt) {
     closeModal();
     modalMovie.innerHTML = '';
   }
-  // onCloseModalKey ();
 }
 
-//    function onCloseModalKey (evt){
-
-//     if (evt.key === "Escape") {
-//        closeModal()
-//     }
-//    };
+function onCloseModalKey(evt) {
+  if (evt.key === 'Escape') {
+    closeModal();
+    window.removeEventListener('keydown', onCloseModalKey);
+  }
+}
