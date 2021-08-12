@@ -24,7 +24,6 @@ function transitToHomePage() {
   headerFormEl.classList.remove('header__form-disable');
   libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
   libraryButtonsBlockEl.classList.remove('library-buttons-block');
-  // e.prevetDefault();
   renderFilm();
 }
 

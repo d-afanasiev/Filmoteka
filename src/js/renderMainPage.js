@@ -49,6 +49,7 @@ export function renderFilm() {
   const spinner = new Spinner('film-list');
 
   filmList.innerHTML = '';
+  pageNumber = 1;
 
   spinner.show();
   fetchTrendFilm().then(r => {
