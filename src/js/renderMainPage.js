@@ -43,7 +43,7 @@ function noPicture(el) {
   }
 }
 
-search.addEventListener('input', debounce(searchFilm, 500));
+search.addEventListener('submit', searchFilm);
 
 export function renderFilm() {
   const spinner = new Spinner({ message: 'Loading....' });
@@ -91,10 +91,11 @@ export function renderFilm() {
 renderFilm();
 
 async function searchFilm(e) {
+  e.preventDefault();
   try {
     const spinner = new Spinner({ message: 'Loading....' });
     spinner.show();
-    if (!e.target.value) {
+    if (!e.currentTarget.firstElementChild.value) {
       await fetchTrendFilm().then(r => {
         r.results.map(el => {
           genresIdConverter(el);
@@ -106,7 +107,7 @@ async function searchFilm(e) {
         return;
       });
     } else {
-      await fetchSearchFilm(e.target.value.trim()).then(r => {
+      await fetchSearchFilm(e.currentTarget.firstElementChild.value.trim()).then(r => {
         if (r.total_results === 0) {
           Notiflix.Notify.failure(
             'Search result not successful. Enter the correct movie name and ',
