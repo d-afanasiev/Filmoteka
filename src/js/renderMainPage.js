@@ -38,14 +38,6 @@ function sliceDate(el) {
   }
 }
 
-function noPicture(el) {
-  if (!el.poster_path) {
-    return (el.poster_path = `https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png`);
-  } else {
-    return (el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`);
-  }
-}
-
 search.addEventListener('submit', searchFilm);
 
 export function renderFilm() {
@@ -60,8 +52,7 @@ export function renderFilm() {
       r.results.map(el => {
         genresIdConverter(el);
         sliceDate(el);
-        noPicture(el);
-      });
+        });
       filmList.innerHTML = hbs(r.results);
 
       //*for pagination*
@@ -76,7 +67,6 @@ export function renderFilm() {
             r.results.map(el => {
               genresIdConverter(el);
               sliceDate(el);
-              noPicture(el);
             });
 
             filmList.innerHTML = hbs(r.results);
@@ -88,11 +78,7 @@ export function renderFilm() {
     .catch(error =>
       Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
     )
-    .finally(() =>
-      setInterval(() => {
-        spinner.hide();
-      }, 2000),
-    );
+    .finally(() => spinner.hide());
 }
 
 renderFilm();
@@ -107,7 +93,6 @@ async function searchFilm(e) {
         r.results.map(el => {
           genresIdConverter(el);
           sliceDate(el);
-          noPicture(el);
         });
         filmList.innerHTML = hbs(r.results);
         return;
@@ -124,7 +109,6 @@ async function searchFilm(e) {
           r.results.map(el => {
             genresIdConverter(el);
             sliceDate(el);
-            noPicture(el);
           });
           filmList.innerHTML = hbs(r.results);
           Notiflix.Notify.success('Successful search');
@@ -134,8 +118,6 @@ async function searchFilm(e) {
   } catch (error) {
     Notiflix.Notify.failure(error);
   } finally {
-    setInterval(() => {
-      spinner.hide();
-    }, 2000);
+    spinner.hide();
   }
 }
