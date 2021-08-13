@@ -1,4 +1,5 @@
 import { renderFilm } from './renderMainPage';
+import Spinner from './utils/spinner';
 
 const homeButtonEl = document.querySelector('.home-button');
 const myLibraryButtonEl = document.querySelector('.my-library-button');
@@ -40,7 +41,12 @@ function transitToMyLibraryPage() {
 
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
+  const spinner = new Spinner({ message: 'Loading....' });
+  spinner.show();
 
+  setInterval(() => {
+    spinner.hide();
+  }, 2000);
   console.log('Here function for show Watched');
 }
 

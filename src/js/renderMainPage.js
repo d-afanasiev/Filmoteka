@@ -88,16 +88,20 @@ export function renderFilm() {
     .catch(error =>
       Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
     )
-    .finally(() => spinner.hide());
+    .finally(() =>
+      setInterval(() => {
+        spinner.hide();
+      }, 1000),
+    );
 }
 
 renderFilm();
 
 async function searchFilm(e) {
   e.preventDefault();
+  const spinner = new Spinner({ message: 'Loading....' });
+  spinner.show();
   try {
-    const spinner = new Spinner({ message: 'Loading....' });
-    spinner.show();
     if (!e.currentTarget.firstElementChild.value) {
       await fetchTrendFilm().then(r => {
         r.results.map(el => {
@@ -106,7 +110,6 @@ async function searchFilm(e) {
           noPicture(el);
         });
         filmList.innerHTML = hbs(r.results);
-        spinner.hide();
         return;
       });
     } else {
@@ -117,7 +120,6 @@ async function searchFilm(e) {
           );
           filmList.innerHTML = '';
           setContainerHidden(true);
-          spinner.hide();
         } else {
           r.results.map(el => {
             genresIdConverter(el);
@@ -126,12 +128,14 @@ async function searchFilm(e) {
           });
           filmList.innerHTML = hbs(r.results);
           Notiflix.Notify.success('Successful search');
-          spinner.hide();
         }
       });
     }
   } catch (error) {
     Notiflix.Notify.failure(error);
-    spinner.hide();
+  } finally {
+    setInterval(() => {
+      spinner.hide();
+    }, 1000);
   }
 }
