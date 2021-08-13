@@ -11,9 +11,6 @@ const libraryButtonsBlockEl = document.querySelector('#library-buttons-block');
 
 const logoBlockEl = document.querySelector('#logo-block');
 
-headerEl.classList.remove('header-my-library');
-libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
-
 homeButtonEl.addEventListener('click', transitToHomePage);
 
 function transitToHomePage() {
