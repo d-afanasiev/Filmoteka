@@ -1,7 +1,11 @@
-
-
 <div class="movie-container">
-  <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
+  {{#if poster_path}}
+                  <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
+                  {{else}}
+                  <img data-id="{{id}}" class="film-list__img"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png"
+                    alt="{{original_title}}">
+                  {{/if}}
   <div class="modal__info">
   <h2 class="modal__title">{{title}}</h2>
   <div class="modal__stats">
@@ -33,9 +37,8 @@
   <p class="modal__descr">{{overview}}</p>
 </div>
 <div class="modal__buttons-container">
-  <button type="button" class="modal__button-watched" data-movie-id="{{id}}">add to Watched</button>
-  <button type="button" class="modal__button-queue" data-movie-id="{{id}}">add to queue</button>
+  <button type="button" class="modal__button-watched modal__button-add" data-movie-id="{{id}}">add to Watched</button>
+  <button type="button" class="modal__button-queue modal__button-add-queue" data-movie-id="{{id}}">add to queue</button>
 </div>
 </div>
-
 
