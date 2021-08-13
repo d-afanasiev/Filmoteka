@@ -1,51 +1,41 @@
 
 
-     <div class="movie-container">
-                  <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
-            </div>
-
-            <div>
-              <div >
-
-                <h2>{{title}}</h2>
-
-                <div>
-                    <ul>
-                      <li>Vote / Votes</li>
-                      <li>Popularity</li>
-                      <li>Original Title</li>
-                      <li>Genre</li>
-                    </ul>
-
-                    <ul>
-                      <li>
-                         <span>{{vote_average}}</span>
-                         <span>/</span>
-                         <span>{{vote_count}}</span>
-                      </li>
-
-                      <li>{{popularity}}</li>
-
-                      <li>{{original_title}}</li>
-
-                      <li>
-                           {{#each genres }}
-                             <span>{{this.name}}{{#unless @last}},{{/unless}}</span>
-                           {{/each}}
-
-                         </li>
-                    </ul>
-                </div>
-
-
-                <h3>About</h3>
-
-                <p>{{overview}}</p>
-
-              </div>
-              <div>
-                   <button type="button" class="modal__button-watched" data-movie-id="{{id}}">add to Watched</button>
-                   <button type="button" class="modal__button-queue" data-movie-id="{{id}}">add to queue</button>
-                </div>
+<div class="movie-container">
+  <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
+  <div class="modal__info">
+  <h2 class="modal__title">{{title}}</h2>
+  <div class="modal__stats">
+  <ul class="modal__stats-vote">
+    <li class="modal__stats-name">Vote / Votes</li>
+    <li>
+      <span class="modal__value-avarage">{{vote_average}}</span>
+      <span>/</span>
+      <span class="modal__value-count">{{vote_count}}</span>
+    </li>
+  </ul>
+  <ul class="modal__stats-popular">
+    <li class="modal__stats-name">Popularity</li>
+    <li><span class="modal__value-popular">{{popularity}}</span></li>
+  </ul>
+  <ul class="modal__stats-title">
+    <li class="modal__stats-name">Original Title </li>
+    <li><span class="modal__value-title">{{original_title}}</span></li>
+  </ul>
+  <ul class="modal__stats-genre">
+    <li class="modal__stats-name">Genre </li>
+    <li>{{#each genres }}
+      <span class="modal__value-genre">{{this.name}}{{#unless @last}},{{/unless}}</span>
+      {{/each}}
+    </li>
+  </ul>
+  
+  <h3 class="modal__about">About</h3>
+  <p class="modal__descr">{{overview}}</p>
+</div>
+<div class="modal__buttons-container">
+  <button type="button" class="modal__button-watched" data-movie-id="{{id}}">add to Watched</button>
+  <button type="button" class="modal__button-queue" data-movie-id="{{id}}">add to queue</button>
+</div>
+</div>
 
 
