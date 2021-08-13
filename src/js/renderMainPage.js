@@ -91,7 +91,7 @@ export function renderFilm() {
     .finally(() =>
       setInterval(() => {
         spinner.hide();
-      }, 1000),
+      }, 2000),
     );
 }
 
@@ -136,6 +136,6 @@ async function searchFilm(e) {
   } finally {
     setInterval(() => {
       spinner.hide();
-    }, 1000);
+    }, 2000);
   }
 }
