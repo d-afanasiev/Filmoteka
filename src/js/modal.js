@@ -47,6 +47,7 @@ function onClick(e) {
           let Idx = localWatched.findIndex(option => option.id === Number.parseInt(filmId));
           if (Idx >= 0) {
             watchButton.textContent = 'Remove from Watched';
+            watchButton.classList.add('modal__button-active');
           }
         }
       }
@@ -59,6 +60,7 @@ function onClick(e) {
           let IdxQueue = localQueue.findIndex(option => option.id === Number.parseInt(filmIdQueue));
           if (IdxQueue >= 0) {
             queueButton.textContent = 'Remove from Queue';
+            queueButton.classList.add('modal__button-active');
           }
         }
       }

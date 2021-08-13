@@ -16,11 +16,13 @@ function addToLibaryWatch() {
         films.push(answer);
         localStorage.setItem('watched', JSON.stringify(films));
         e.target.textContent = 'remove from Watched';
+        onButtonWatch.classList.add('modal__button-active');
       } else {
         let Idx = films.findIndex(option => option.id === Number.parseInt(filmId));
         films.splice(Idx, 1);
         localStorage.setItem('watched', JSON.stringify(films));
         e.target.textContent = 'add to Watched';
+        onButtonWatch.classList.remove('modal__button-active');
       }
     });
   }
@@ -39,12 +41,13 @@ function addToLibaryQueue() {
         films.push(answer);
         localStorage.setItem('queue', JSON.stringify(films));
         e.target.textContent = 'remove from Queue';
+        onButtonQueue.classList.add('modal__button-active');
       } else {
         let Idx = films.findIndex(option => option.id === Number.parseInt(filmId));
         films.splice(Idx, 1);
-        console.log(films);
         localStorage.setItem('queue', JSON.stringify(films));
         e.target.textContent = 'add to Queue';
+        onButtonQueue.classList.remove('modal__button-active');
       }
     });
   }
