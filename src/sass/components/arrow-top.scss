@@ -1,0 +1,30 @@
+.arrow-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  color: #6c757d;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  border: 2px solid #6c757d;
+  border-radius: 50%;
+}
+.arrow-top:before {
+  content: '▲';
+}
+
+.arrow-top:hover {
+  color: #ff6b08;
+  border-color: #ff6b08;
+}
+
+.arrow-hidden {
+  display: none;
+}
+
+.arrow-show {
+  display: flex;
+}
