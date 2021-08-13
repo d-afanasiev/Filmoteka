@@ -62,7 +62,8 @@
   cursor: pointer;
   transition: background-color var(--animation-duration) var(--timing-function);
   outline: none;
-  background-image: url('../images/icon-close.svg');
+  // background-image: url('../images/icon-close.svg');
+  background-image: url('../images/close.svg');
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
