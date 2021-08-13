@@ -10,7 +10,8 @@ const modalMovie = document.querySelector('.modal__template');
 const modalWindow = document.querySelector('.lightbox');
 const closeBtn = document.querySelector('.modal__button');
 const watchButton = document.querySelector('.modal__button-add');
-let local = [];
+let localWatched = [];
+let localQueue = [];
 
 
 function fetchMovieId(movieId) {
@@ -37,17 +38,35 @@ function onClick(e) {
   if (e.target.classList.value === 'film-list__img') {
     fetchMovieId(movieId).then(response => {
       modalMovie.innerHTML = markup(response.data);
-      const watchButton = document.querySelector('.modal__button-add');
-       local = JSON.parse(localStorage.getItem("watched"));
+      watchButton();
+      queueButton();
       
-let filmId = e.target.dataset.id;
-console.log("local", local);
-if (local != null){
-let Idx = local.findIndex(option => option.id == filmId);
+      function watchButton(){
+      const watchButton = document.querySelector('.modal__button-add');
+      localWatched = JSON.parse(localStorage.getItem("watched"));
+      let filmId = e.target.dataset.id;
+console.log("local", localWatched);
+if (localWatched != null){
+let Idx = localWatched.findIndex(option => option.id == filmId);
 console.log("idx", Idx);
       if (Idx >=0) {
       watchButton.textContent = "Remove from Watched"};}
-      STORAGE.addToLibary();
+      }
+
+      function queueButton(){
+      const queueButton = document.querySelector('.modal__button-add');
+      localQueue = JSON.parse(localStorage.getItem("queue"));
+      let filmIdQueue = e.target.dataset.id;
+console.log("local", localQueue);
+if (localQueue != null){
+let IdxQueue = localQueue.findIndex(option => option.id == filmIdQueue);
+console.log("idx", IdxQueue);
+      if (IdxQueue >=0) {
+      queueButton.textContent = "Remove from Queue"};}
+      }
+
+      STORAGE.addToLibaryWatch();
+      STORAGE.addToLibaryQueue();
     });
   }
 
