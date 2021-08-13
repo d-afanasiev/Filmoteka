@@ -1,7 +1,13 @@
 
 
      <div class="movie-container">
+                {{#if poster_path}}
                   <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
+                  {{else}}
+                  <img data-id="{{id}}" class="film-list__img"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png"
+                    alt="{{original_title}}">
+                  {{/if}}
             </div>
 
             <div>
