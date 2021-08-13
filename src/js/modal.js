@@ -43,7 +43,6 @@ function onClick(e) {
         const watchButton = document.querySelector('.modal__button-add');
         localWatched = JSON.parse(localStorage.getItem('watched'));
         let filmId = e.target.dataset.id;
-        console.log(filmId);
         if (localWatched != null) {
           let Idx = localWatched.findIndex(option => option.id === Number.parseInt(filmId));
           if (Idx >= 0) {

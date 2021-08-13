@@ -17,7 +17,7 @@ function addToLibaryWatch() {
         localStorage.setItem('watched', JSON.stringify(films));
         e.target.textContent = 'remove from Watched';
       } else {
-        let Idx = films.findIndex(option => option.id == filmId);
+        let Idx = films.findIndex(option => option.id === Number.parseInt(filmId));
         films.splice(Idx, 1);
         localStorage.setItem('watched', JSON.stringify(films));
         e.target.textContent = 'add to Watched';
@@ -40,8 +40,9 @@ function addToLibaryQueue() {
         localStorage.setItem('queue', JSON.stringify(films));
         e.target.textContent = 'remove from Queue';
       } else {
-        let Idx = films.findIndex(option => option.id == filmId);
+        let Idx = films.findIndex(option => option.id === Number.parseInt(filmId));
         films.splice(Idx, 1);
+        console.log(films);
         localStorage.setItem('queue', JSON.stringify(films));
         e.target.textContent = 'add to Queue';
       }
