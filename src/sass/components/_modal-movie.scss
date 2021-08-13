@@ -61,14 +61,18 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   z-index: 10;
-  width: 320px;
-  height: 609px;
+  width: 280px;
+  height: auto;
   background-color: #fff;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
 
   @media screen and (min-width: 768px) {
     width: 618px;
-    height: 562px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -99,11 +103,105 @@
     cursor: pointer;
   }
 }
-
+//kostiq
 .movie-container {
-  width: 396px;
+  padding: 5px 20px 41px 20px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .modal__template {
   display: flex;
+}
+
+.modal__image {
+  width: 240px;
+  height: 357px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+    margin-left: 10px;
+    width: auto;
+    height: 374px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: auto;
+    height: 568px;
+    margin-right: 30px;
+  }
+}
+
+.modal__title {
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 23px;
+  margin-bottom: 20px;
+}
+.modal__stats-vote,
+.modal__stats-popular,
+.modal__stats-title,
+.modal__stats-genre {
+  display: flex;
+  margin-bottom: 10px;
+}
+.modal__stats-name {
+  color: #8c8c8c;
+  min-width: 69px;
+  margin-right: 41px;
+}
+.modal__value-avarage {
+  background-color: #ff6b01;
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+  color: #ffffff;
+}
+.modal__value-count {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+}
+
+.modal__value-title {
+  text-transform: uppercase;
+}
+
+.modal__about {
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.modal__descr {
+  margin-bottom: 21px;
+}
+
+.modal__buttons-container {
+  display: flex;
+}
+.modal__button-watched,
+.modal__button-queue {
+  width: 112.58px;
+  height: 44px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.modal__button-watched {
+  margin-right: 15px;
+}
+
+.modal__button-watched:hover,
+.modal__button-queue:hover,
+.modal__button-watched:focus,
+.modal__button-queue:focus {
+  background-color: #ff6b01;
+  color: #fff;
+  border: none;
+}
+.modal__info {
+  @media screen and (min-width: 768px) {
+    margin-right: 10px;
+  }
 }
