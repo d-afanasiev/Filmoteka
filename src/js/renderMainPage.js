@@ -2,7 +2,7 @@ import hbs from '../templates/cardMainPage.hbs';
 import { debounce } from 'lodash';
 import Notiflix from 'notiflix';
 import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
-import genreList from './genreList';
+import { genreList } from './genreList';
 import Spinner from './utils/spinner';
 
 //*for pagination*
@@ -20,7 +20,7 @@ const search = document.querySelector('.header__form');
 
 function genresIdConverter(el) {
   if (el.genre_ids.length === 0) {
-    return el.genre_ids="Other"
+    return (el.genre_ids = 'Other');
   }
   el.genre_ids = el.genre_ids
     .map(genreID => (genreID = genreList[genreID]))
@@ -32,7 +32,7 @@ function genresIdConverter(el) {
 
 function sliceDate(el) {
   if (!el.release_date) {
-    return el.release_date = "Unknown date";
+    return (el.release_date = 'Unknown date');
   } else {
     return (el.release_date = el.release_date.slice(0, -6));
   }
