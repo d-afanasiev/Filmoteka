@@ -1,5 +1,6 @@
 import axios from 'axios';
 import markup from '../templates/markupModal.hbs';
+import STORAGE  from "./moveToLocalStorage";
 
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
@@ -8,6 +9,9 @@ const filmList = document.querySelector('.film-list');
 const modalMovie = document.querySelector('.modal__template');
 const modalWindow = document.querySelector('.lightbox');
 const closeBtn = document.querySelector('.modal__button');
+
+
+
 
 function fetchMovieId(movieId) {
   const url = `${BASE_URL}${movieId}?api_key=${API_KEY}&language=en-US`;
@@ -36,9 +40,11 @@ function onClick(e) {
   }
 
   openModal();
+ 
 }
 
 function openModal(e) {
+  STORAGE.addToLibary();
   closeModal();
   modalMovie.innerHTML = '';
   modalWindow.classList.add('is-open');
