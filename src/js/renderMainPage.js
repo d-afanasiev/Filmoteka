@@ -88,11 +88,7 @@ export function renderFilm() {
     .catch(error =>
       Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
     )
-    .finally(() =>
-      setInterval(() => {
-        spinner.hide();
-      }, 2000),
-    );
+    .finally(() => spinner.hide());
 }
 
 renderFilm();
@@ -134,8 +130,6 @@ async function searchFilm(e) {
   } catch (error) {
     Notiflix.Notify.failure(error);
   } finally {
-    setInterval(() => {
-      spinner.hide();
-    }, 2000);
+    spinner.hide();
   }
 }
