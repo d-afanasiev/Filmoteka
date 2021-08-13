@@ -2,7 +2,7 @@ import hbs from '../templates/cardMainPage.hbs';
 import { debounce } from 'lodash';
 import Notiflix from 'notiflix';
 import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
-import { genreList } from './genreList';
+import genreList from './json/genres.json';
 import Spinner from './utils/spinner';
 
 //*for pagination*
@@ -52,7 +52,7 @@ export function renderFilm() {
       r.results.map(el => {
         genresIdConverter(el);
         sliceDate(el);
-        });
+      });
       filmList.innerHTML = hbs(r.results);
 
       //*for pagination*
