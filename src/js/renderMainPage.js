@@ -19,6 +19,9 @@ const filmList = document.querySelector('.film-list');
 const search = document.querySelector('.header__form');
 
 function genresIdConverter(el) {
+  if (el.genre_ids.length === 0) {
+    return el.genre_ids="Other"
+  }
   el.genre_ids = el.genre_ids
     .map(genreID => (genreID = genreList[genreID]))
     .slice(0, 2)
@@ -29,7 +32,7 @@ function genresIdConverter(el) {
 
 function sliceDate(el) {
   if (!el.release_date) {
-    return el.release_date;
+    return el.release_date = "Unknown date";
   } else {
     return (el.release_date = el.release_date.slice(0, -6));
   }
