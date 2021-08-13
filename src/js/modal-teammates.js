@@ -10,6 +10,11 @@ function onFooterTeamLinkClick(e) {
 
   lightboxRef.addEventListener('click', onlightboxRefClick);
   window.addEventListener('keydown', onEscBtnKeydown);
+
+  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const body = document.body;
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollY}`;
 }
 
 function onlightboxRefClick(e) {
@@ -31,6 +36,12 @@ function closeLightbox() {
   lightboxRef.classList.remove('is-open');
   closeLightboxBtn.removeEventListener('click', onlightboxRefClick);
   window.removeEventListener('keydown', onEscBtnKeydown);
+
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }
 
 function onEscBtnKeydown(e) {
@@ -40,3 +51,7 @@ function onEscBtnKeydown(e) {
     closeLightbox();
   }
 }
+
+window.addEventListener('scroll', () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+});
