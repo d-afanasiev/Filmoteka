@@ -1,6 +1,6 @@
 import axios from 'axios';
 import markup from '../templates/markupModal.hbs';
-import STORAGE from '../js/moveToLocalStorage';
+import storageLibraryMovies from '../js/moveToLocalStorage';
 
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
@@ -43,8 +43,9 @@ function onClick(e) {
         const watchButton = document.querySelector('.modal__button-add');
         localWatched = JSON.parse(localStorage.getItem('watched'));
         let filmId = e.target.dataset.id;
+        console.log(filmId);
         if (localWatched != null) {
-          let Idx = localWatched.findIndex(option => option.id == filmId);
+          let Idx = localWatched.findIndex(option => option.id === Number.parseInt(filmId));
           if (Idx >= 0) {
             watchButton.textContent = 'Remove from Watched';
           }
@@ -52,19 +53,19 @@ function onClick(e) {
       }
 
       function queueButton() {
-        const queueButton = document.querySelector('.modal__button-add');
+        const queueButton = document.querySelector('.modal__button-queue');
         localQueue = JSON.parse(localStorage.getItem('queue'));
         let filmIdQueue = e.target.dataset.id;
         if (localQueue != null) {
-          let IdxQueue = localQueue.findIndex(option => option.id == filmIdQueue);
+          let IdxQueue = localQueue.findIndex(option => option.id === Number.parseInt(filmIdQueue));
           if (IdxQueue >= 0) {
             queueButton.textContent = 'Remove from Queue';
           }
         }
       }
 
-      STORAGE.addToLibaryWatch();
-      STORAGE.addToLibaryQueue();
+      storageLibraryMovies.addToLibaryWatch();
+      storageLibraryMovies.addToLibaryQueue();
     });
   }
 
