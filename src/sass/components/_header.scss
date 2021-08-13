@@ -129,6 +129,10 @@
   margin-left: 39px;
 }
 
+.header__link-item:first-child {
+  margin-left: 0;
+}
+
 .header__link {
   display: block;
 

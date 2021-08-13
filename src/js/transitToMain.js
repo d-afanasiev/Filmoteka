@@ -5,13 +5,11 @@ const myLibraryButtonEl = document.querySelector('.my-library-button');
 
 const headerEl = document.querySelector('#header');
 const headerFormEl = document.querySelector('#header-form');
+const headerInput = document.querySelector('.header__input');
 
 const libraryButtonsBlockEl = document.querySelector('#library-buttons-block');
 
 const logoBlockEl = document.querySelector('#logo-block');
-
-headerEl.classList.remove('header-my-library');
-libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
 
 homeButtonEl.addEventListener('click', transitToHomePage);
 
@@ -24,8 +22,8 @@ function transitToHomePage() {
   headerFormEl.classList.remove('header__form-disable');
   libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
   libraryButtonsBlockEl.classList.remove('library-buttons-block');
-  // e.prevetDefault();
   renderFilm();
+  headerInput.value = '';
 }
 
 myLibraryButtonEl.addEventListener('click', transitToMyLibraryPage);
