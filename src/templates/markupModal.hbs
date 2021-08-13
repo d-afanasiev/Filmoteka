@@ -2,9 +2,9 @@
   {{#if poster_path}}
                   <img class="modal__image" src="https://image.tmdb.org/t/p/w500/{{poster_path}}" alt="{{title}}">
                   {{else}}
-                  <img data-id="{{id}}" class="film-list__img"
+                  <img class="modal__image"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png"
-                    alt="{{original_title}}">
+                    alt="{{title}}">
                   {{/if}}
   <div class="modal__info">
   <h2 class="modal__title">{{title}}</h2>
@@ -32,7 +32,7 @@
       {{/each}}
     </li>
   </ul>
-  
+
   <h3 class="modal__about">About</h3>
   <p class="modal__descr">{{overview}}</p>
 </div>
