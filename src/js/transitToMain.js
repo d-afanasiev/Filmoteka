@@ -44,14 +44,8 @@ function transitToMyLibraryPage() {
   queueButtonEl.classList.remove('library-button-active');
   const spinner = new Spinner({ message: 'Loading....' });
   spinner.show();
-
-  setInterval(() => {
-    spinner.hide();
-  }, 2000);
-
   renderWatchedQueueFilms('watched');
-
-  console.log('Here function for show Watched');
+  spinner.hide();
 }
 
 logoBlockEl.addEventListener('click', transitToHomePage);
