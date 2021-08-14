@@ -8,6 +8,7 @@ const filmList = document.querySelector('.film-list');
 const modalMovie = document.querySelector('.modal__template');
 const modalWindow = document.querySelector('.lightbox');
 const closeBtn = document.querySelector('.modal__button');
+const body = document.querySelector('.body')
 
 function fetchMovieId(movieId) {
   const url = `${BASE_URL}${movieId}?api_key=${API_KEY}&language=en-US`;
@@ -42,6 +43,7 @@ function openModal(e) {
   closeModal();
   modalMovie.innerHTML = '';
   modalWindow.classList.add('is-open');
+  body.classList.add('scroll-hidden');
   window.addEventListener('keydown', onCloseModalKey);
 }
 
@@ -50,6 +52,7 @@ modalWindow.addEventListener('click', onCloseModalWindow);
 
 function closeModal() {
   modalWindow.classList.remove('is-open');
+  body.classList.remove('scroll-hidden');
   modalMovie.innerHTML = '';
 }
 
