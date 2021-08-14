@@ -1,5 +1,6 @@
 import { renderFilm } from './renderMainPage';
 import Spinner from './utils/spinner';
+import { renderWatchedQueueFilms } from './renderWatchedQueue';
 
 const homeButtonEl = document.querySelector('.home-button');
 const myLibraryButtonEl = document.querySelector('.my-library-button');
@@ -47,6 +48,9 @@ function transitToMyLibraryPage() {
   setInterval(() => {
     spinner.hide();
   }, 2000);
+
+  renderWatchedQueueFilms('watched');
+
   console.log('Here function for show Watched');
 }
 
@@ -62,6 +66,7 @@ queueButtonEl.addEventListener('click', showQueue);
 function showWatched() {
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
+  renderWatchedQueueFilms('watched');
 
   console.log('Here function for show Watched');
 }
@@ -69,6 +74,7 @@ function showWatched() {
 function showQueue() {
   queueButtonEl.classList.add('library-button-active');
   watchedButtonEl.classList.remove('library-button-active');
+  renderWatchedQueueFilms('queue');
 
   console.log('Here function for show Queue');
 }

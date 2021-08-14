@@ -1,7 +1,8 @@
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
 import axios from 'axios';
-let films = [];
+import { save, deleteObj } from './actionWithLS';
+// let films = {};
 
 function addToLibaryWatch() {
   const onButtonWatch = document.querySelector('.modal__button-add');
@@ -9,18 +10,14 @@ function addToLibaryWatch() {
 
   function watch(e) {
     let filmId = e.target.dataset.movieId;
-
     fetchMovieId(filmId).then(response => {
       let answer = response.data;
       if (e.target.textContent === 'add to Watched') {
-        films.push(answer);
-        localStorage.setItem('watched', JSON.stringify(films));
+        save('watched', answer);
         e.target.textContent = 'remove from Watched';
         onButtonWatch.classList.add('modal__button-active');
       } else {
-        let Idx = films.findIndex(option => option.id === Number.parseInt(filmId));
-        films.splice(Idx, 1);
-        localStorage.setItem('watched', JSON.stringify(films));
+        deleteObj('watched', answer.id);
         e.target.textContent = 'add to Watched';
         onButtonWatch.classList.remove('modal__button-active');
       }
@@ -38,14 +35,11 @@ function addToLibaryQueue() {
     fetchMovieId(filmId).then(response => {
       let answer = response.data;
       if (e.target.textContent === 'add to Queue') {
-        films.push(answer);
-        localStorage.setItem('queue', JSON.stringify(films));
+        save('queue', answer);
         e.target.textContent = 'remove from Queue';
         onButtonQueue.classList.add('modal__button-active');
       } else {
-        let Idx = films.findIndex(option => option.id === Number.parseInt(filmId));
-        films.splice(Idx, 1);
-        localStorage.setItem('queue', JSON.stringify(films));
+        deleteObj('queue', answer.id);
         e.target.textContent = 'add to Queue';
         onButtonQueue.classList.remove('modal__button-active');
       }
