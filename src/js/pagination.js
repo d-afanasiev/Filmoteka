@@ -8,7 +8,7 @@ export const setContainerHidden = arg => {
 
 const optionsForPagination = {
   // Total number of items
-  totalItems: 1000,
+  totalItems: 0,
 
   // Items per page
   itemsPerPage: itemsPerPage,
