@@ -1,9 +1,11 @@
-if (localStorage.getItem('watched') === null) {
-    localStorage.setItem('watched', []);
-}
+export function initLocalStorage() {
+    if (localStorage.getItem('watched') === "") {
+        localStorage.setItem('watched', JSON.stringify([]));
+    }
 
-if (localStorage.getItem('queue') === null) {
-    localStorage.setItem('queue', []);
+    if (localStorage.getItem('queue') === "") {
+        localStorage.setItem('queue', JSON.stringify([]));
+    }
 }
 
 export function save(key, value) {

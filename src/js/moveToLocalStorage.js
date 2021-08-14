@@ -15,14 +15,9 @@ function addToLibaryWatch() {
       let answer = response.data;
       if (e.target.textContent === 'add to Watched') {
         save('watched', answer);
-        filmsWatch.push(answer);
-        localStorage.setItem('watched', JSON.stringify(filmsWatch));
         e.target.textContent = 'remove from Watched';
       } else {
         deleteObj('watched', answer.id);
-        let Idx = filmsWatch.findIndex(option => option.id == filmId);
-        filmsWatch.splice(Idx, 1);
-        localStorage.setItem('watched', JSON.stringify(filmsWatch));
         e.target.textContent = 'add to Watched';
         onButtonWatch.classList.remove('modal__button-active');
       }
@@ -41,14 +36,9 @@ function addToLibaryQueue() {
       let answer = response.data;
       if (e.target.textContent === 'add to Queue') {
         save('queue', answer);
-        filmsQueue.push(answer);
-        localStorage.setItem('queue', JSON.stringify(filmsQueue));
         e.target.textContent = 'remove from Queue';
       } else {
         deleteObj('queue', answer.id);
-        let Idx = filmsQueue.findIndex(option => option.id == filmId);
-        filmsQueue.splice(Idx, 1);
-        localStorage.setItem('queue', JSON.stringify(filmsQueue));
         e.target.textContent = 'add to Queue';
       }
     });

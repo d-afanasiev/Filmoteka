@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
 import genreList from './json/genres.json';
 import Spinner from './utils/spinner';
+import { initLocalStorage } from './actionWithLS';
 
 //*for pagination*
 import Pagination from 'tui-pagination';
@@ -82,11 +83,12 @@ export function renderFilm() {
     .finally(() => spinner.hide());
 }
 
+initLocalStorage();
 renderFilm();
 
 async function searchFilm(e) {
   e.preventDefault();
-   
+
   inputValue = e.currentTarget.firstElementChild.value.trim();
 
   const spinner = new Spinner({ message: 'Loading....' });
@@ -102,43 +104,43 @@ async function searchFilm(e) {
         return;
       });
     } else {
-        await fetchSearchFilm(inputValue).then(r => {
-          if (r.total_results === 0) {
-              Notiflix.Notify.failure(
-                'Search result not successful. Enter the correct movie name.'
-            );
-              setContainerHidden(true);
-              filmList.innerHTML = '';
+      await fetchSearchFilm(inputValue).then(r => {
+        if (r.total_results === 0) {
+          Notiflix.Notify.failure(
+            'Search result not successful. Enter the correct movie name.'
+          );
+          setContainerHidden(true);
+          filmList.innerHTML = '';
+        } else {
+          r.results.map(el => {
+            genresIdConverter(el);
+            sliceDate(el);
+          });
+          filmList.innerHTML = hbs(r.results);
+          Notiflix.Notify.success('Successful search');
+
+          //*for pagination*
+          if (r.total_results <= opt.itemsPerPage) {
+            setContainerHidden(true);
           } else {
-              r.results.map(el => {
-                genresIdConverter(el);
-                sliceDate(el);
-              });
-              filmList.innerHTML = hbs(r.results);
-              Notiflix.Notify.success('Successful search');
-          
-                //*for pagination*
-                  if (r.total_results <= opt.itemsPerPage) {
-                    setContainerHidden(true);
-                  } else {
-                      opt.totalItems = r.total_results;
-                      opt.page = r.page;
-                      pagination();
-                      setContainerHidden(false);
-                      myPagination.on('afterMove', function (eventData) {
-                          pageNumber = eventData.page;
-                          fetchSearchFilm(inputValue).then(r => {
-                              r.results.map(el => {
-                                genresIdConverter(el);
-                                sliceDate(el);
-                              });
-                            
-                          filmList.innerHTML = hbs(r.results);
-                          })
-                      })
-                  }
-                //*
+            opt.totalItems = r.total_results;
+            opt.page = r.page;
+            pagination();
+            setContainerHidden(false);
+            myPagination.on('afterMove', function (eventData) {
+              pageNumber = eventData.page;
+              fetchSearchFilm(inputValue).then(r => {
+                r.results.map(el => {
+                  genresIdConverter(el);
+                  sliceDate(el);
+                });
+
+                filmList.innerHTML = hbs(r.results);
+              })
+            })
           }
+          //*
+        }
 
         // if (r.total_results === 0) {
         //   Notiflix.Notify.failure(
