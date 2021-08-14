@@ -22,14 +22,6 @@ export async function fetchTrendFilm() {
   return filmsData;
 }
 
-export async function fetchListGenre() {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=4e286c2ceeb7113ef3a7d57d0bdb7157&language=en-US`,
-  );
-  const genreData = await response.json();
-  return genreData;
-}
-
 // initial code
 
 // export async function fetchSearchFilm(value) {

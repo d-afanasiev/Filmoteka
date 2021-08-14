@@ -2,7 +2,7 @@ import hbs from '../templates/cardMainPage.hbs';
 import { debounce } from 'lodash';
 import Notiflix from 'notiflix';
 import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
-import { genreList } from './genreList';
+import genreList from './json/genres.json';
 import Spinner from './utils/spinner';
 
 //*for pagination*
@@ -38,14 +38,6 @@ function sliceDate(el) {
   }
 }
 
-function noPicture(el) {
-  if (!el.poster_path) {
-    return (el.poster_path = `https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/488px-No-Image-Placeholder.svg.png`);
-  } else {
-    return (el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`);
-  }
-}
-
 search.addEventListener('submit', searchFilm);
 
 export function renderFilm() {
@@ -60,7 +52,6 @@ export function renderFilm() {
       r.results.map(el => {
         genresIdConverter(el);
         sliceDate(el);
-        noPicture(el);
       });
       filmList.innerHTML = hbs(r.results);
 
@@ -76,7 +67,6 @@ export function renderFilm() {
             r.results.map(el => {
               genresIdConverter(el);
               sliceDate(el);
-              noPicture(el);
             });
 
             filmList.innerHTML = hbs(r.results);
@@ -95,18 +85,16 @@ renderFilm();
 
 async function searchFilm(e) {
   e.preventDefault();
+  const spinner = new Spinner({ message: 'Loading....' });
+  spinner.show();
   try {
-    const spinner = new Spinner({ message: 'Loading....' });
-    spinner.show();
     if (!e.currentTarget.firstElementChild.value) {
       await fetchTrendFilm().then(r => {
         r.results.map(el => {
           genresIdConverter(el);
           sliceDate(el);
-          noPicture(el);
         });
         filmList.innerHTML = hbs(r.results);
-        spinner.hide();
         return;
       });
     } else {
@@ -117,21 +105,19 @@ async function searchFilm(e) {
           );
           filmList.innerHTML = '';
           setContainerHidden(true);
-          spinner.hide();
         } else {
           r.results.map(el => {
             genresIdConverter(el);
             sliceDate(el);
-            noPicture(el);
           });
           filmList.innerHTML = hbs(r.results);
           Notiflix.Notify.success('Successful search');
-          spinner.hide();
         }
       });
     }
   } catch (error) {
     Notiflix.Notify.failure(error);
+  } finally {
     spinner.hide();
   }
 }
