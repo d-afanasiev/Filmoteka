@@ -61,14 +61,10 @@ function showWatched() {
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
   renderWatchedQueueFilms('watched');
-
-  console.log('Here function for show Watched');
 }
 
 function showQueue() {
   queueButtonEl.classList.add('library-button-active');
   watchedButtonEl.classList.remove('library-button-active');
   renderWatchedQueueFilms('queue');
-
-  console.log('Here function for show Queue');
 }
