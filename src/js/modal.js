@@ -43,11 +43,11 @@ function onClick(e) {
         const watchButton = document.querySelector('.modal__button-add');
         localWatched = JSON.parse(localStorage.getItem('watched'));
         let filmId = e.target.dataset.id;
-        console.log(filmId);
         if (localWatched != null) {
           let Idx = localWatched.findIndex(option => option.id === Number.parseInt(filmId));
           if (Idx >= 0) {
             watchButton.textContent = 'Remove from Watched';
+            watchButton.classList.add('modal__button-active');
           }
         }
       }
@@ -60,6 +60,7 @@ function onClick(e) {
           let IdxQueue = localQueue.findIndex(option => option.id === Number.parseInt(filmIdQueue));
           if (IdxQueue >= 0) {
             queueButton.textContent = 'Remove from Queue';
+            queueButton.classList.add('modal__button-active');
           }
         }
       }

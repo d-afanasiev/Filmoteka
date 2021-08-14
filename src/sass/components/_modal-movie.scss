@@ -187,15 +187,20 @@
   height: 44px;
   background-color: #fff;
   border-radius: 5px;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 136px;
+  }
 }
 .modal__button-watched {
   margin-right: 15px;
 }
 
 .modal__button-watched:hover,
-.modal__button-queue:hover,
-.modal__button-watched:focus,
-.modal__button-queue:focus {
+.modal__button-queue:hover {
   background-color: #ff6b01;
   color: #fff;
   border: none;
@@ -204,4 +209,10 @@
   @media screen and (min-width: 768px) {
     margin-right: 10px;
   }
+}
+
+.modal__button-active {
+  background-color: #ff6b01;
+  color: #fff;
+  border: none;
 }
