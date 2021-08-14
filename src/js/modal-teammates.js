@@ -24,8 +24,9 @@ function onlightboxRefClick(e) {
     closeLightbox();
   }
 
-  const lightbox__overlayRef = document.querySelector('.lightbox__overlay');
-  const isLightbox__overlayClicked = e.target === lightbox__overlayRef;
+  const isLightbox__overlayClicked = e.target == document.querySelector('.lightbox__overlay');
+  console.log('🚀 ~ onlightboxRefClick ~  e.target ', e.target);
+  console.log('🚀 ~ onlightboxRefClick ~ isLightbox__overlayClicked', isLightbox__overlayClicked);
 
   if (isLightbox__overlayClicked) {
     closeLightbox();

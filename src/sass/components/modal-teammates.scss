@@ -91,7 +91,7 @@
 
 .lightbox.is-open {
   opacity: 1;
-  pointer-events: initial;
+  pointer-events: all;
 }
 
 .lightbox__overlay {
@@ -116,7 +116,8 @@
   margin: 0;
   border: none;
   border-radius: 50%;
-  background-color: transparent;
+  // background-color: transparent;
+  background-color: white;
   color: #fff;
   cursor: pointer;
   transition: opasity 250ms cubic-bezier(0.4, 0, 0.2, 1);
