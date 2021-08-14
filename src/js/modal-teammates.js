@@ -1,5 +1,5 @@
 const footerTeamLink = document.querySelector('.footer__team-link');
-const lightboxRef = document.querySelector('.js-lightbox');
+const lightboxRef = document.querySelector('.js-team-lightbox');
 const closeLightboxBtn = document.querySelector('button[data-action="close-lightbox"]');
 
 footerTeamLink.addEventListener('click', onFooterTeamLinkClick);
@@ -24,9 +24,7 @@ function onlightboxRefClick(e) {
     closeLightbox();
   }
 
-  const isLightbox__overlayClicked = e.target == document.querySelector('.lightbox__overlay');
-  console.log('🚀 ~ onlightboxRefClick ~  e.target ', e.target);
-  console.log('🚀 ~ onlightboxRefClick ~ isLightbox__overlayClicked', isLightbox__overlayClicked);
+  const isLightbox__overlayClicked = e.target === document.querySelector('.lightbox-team__overlay');
 
   if (isLightbox__overlayClicked) {
     closeLightbox();
