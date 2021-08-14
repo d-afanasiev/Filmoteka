@@ -11,28 +11,30 @@ function addToLibaryWatch() {
   function watch(e) {
     let filmId = e.target.dataset.movieId;
 
-function watch(e){
- 
-    let filmId = e.target.dataset.id;
+    function watch(e) {
+      let filmId = e.target.dataset.id;
 
-    fetchMovieId(filmId).then(response => {
-      let answer = response.data;
-      if (e.target.textContent === 'add to Watched') {
-        filmsWatch.push(answer);
-        localStorage.setItem('watched', JSON.stringify(filmsWatch));
-        e.target.textContent = 'remove from Watched';
-      } else {
-        let Idx = filmsWatch.findIndex(option => option.id == filmId);
-        filmsWatch.splice(Idx, 1);
-        localStorage.setItem('watched', JSON.stringify(filmsWatch));
-        e.target.textContent = 'add to Watched';
+      fetchMovieId(filmId).then(response => {
+        let answer = response.data;
+        if (e.target.textContent === 'add to Watched') {
+          filmsWatch.push(answer);
+          localStorage.setItem('watched', JSON.stringify(filmsWatch));
+          e.target.textContent = 'remove from Watched';
+        } else {
+          let Idx = filmsWatch.findIndex(option => option.id == filmId);
+          filmsWatch.splice(Idx, 1);
+          localStorage.setItem('watched', JSON.stringify(filmsWatch));
+          e.target.textContent = 'add to Watched';
+        }
+      });
+    }
   }
 }
 
 function addToLibaryQueue() {
   const onButtonQueue = document.querySelector('.modal__button-add-queue');
   onButtonQueue.addEventListener('click', queue);
-  
+
   function queue(e) {
     let filmId = e.target.dataset.movieId;
 
