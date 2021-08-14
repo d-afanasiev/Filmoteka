@@ -2,7 +2,8 @@ const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
 import axios from 'axios';
 import { save, deleteObj } from './actionWithLS';
-// let films = {};
+let filmsWatch = [];
+let filmsQueue = [];
 
 function addToLibaryWatch() {
   const onButtonWatch = document.querySelector('.modal__button-add');
@@ -10,18 +11,23 @@ function addToLibaryWatch() {
 
   function watch(e) {
     let filmId = e.target.dataset.movieId;
-    fetchMovieId(filmId).then(response => {
-      let answer = response.data;
-      if (e.target.textContent === 'add to Watched') {
-        save('watched', answer);
-        e.target.textContent = 'remove from Watched';
-        onButtonWatch.classList.add('modal__button-active');
-      } else {
-        deleteObj('watched', answer.id);
-        e.target.textContent = 'add to Watched';
-        onButtonWatch.classList.remove('modal__button-active');
-      }
-    });
+      fetchMovieId(filmId).then(response => {
+        let answer = response.data;
+        if (e.target.textContent === 'add to Watched') {
+          save('watched', answer);
+          filmsWatch.push(answer);
+          localStorage.setItem('watched', JSON.stringify(filmsWatch));
+          e.target.textContent = 'remove from Watched';
+        } else {
+          deleteObj('watched', answer.id);
+          let Idx = filmsWatch.findIndex(option => option.id == filmId);
+          filmsWatch.splice(Idx, 1);
+          localStorage.setItem('watched', JSON.stringify(filmsWatch));
+          e.target.textContent = 'add to Watched';
+          onButtonWatch.classList.remove('modal__button-active');
+        }
+      });
+    }
   }
 }
 
@@ -36,12 +42,15 @@ function addToLibaryQueue() {
       let answer = response.data;
       if (e.target.textContent === 'add to Queue') {
         save('queue', answer);
+        filmsQueue.push(answer);
+        localStorage.setItem('queue', JSON.stringify(filmsQueue));
         e.target.textContent = 'remove from Queue';
-        onButtonQueue.classList.add('modal__button-active');
       } else {
         deleteObj('queue', answer.id);
+        let Idx = filmsQueue.findIndex(option => option.id == filmId);
+        filmsQueue.splice(Idx, 1);
+        localStorage.setItem('queue', JSON.stringify(filmsQueue));
         e.target.textContent = 'add to Queue';
-        onButtonQueue.classList.remove('modal__button-active');
       }
     });
   }
