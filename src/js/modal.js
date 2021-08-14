@@ -5,6 +5,10 @@ import storageLibraryMovies from '../js/moveToLocalStorage';
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
 
+//*for body no-scroll *
+const bodyEl = document.querySelector('body');
+//*
+
 const filmList = document.querySelector('.film-list');
 const modalMovie = document.querySelector('.modal__template');
 const modalWindow = document.querySelector('.lightbox');
@@ -78,6 +82,10 @@ function openModal(e) {
   modalMovie.innerHTML = '';
   modalWindow.classList.add('is-open');
   window.addEventListener('keydown', onCloseModalKey);
+
+  //*for body no-scroll *
+  bodyEl.classList.add('modal-is-open');
+  //*
 }
 
 closeBtn.addEventListener('click', closeModal);
@@ -86,6 +94,10 @@ modalWindow.addEventListener('click', onCloseModalWindow);
 function closeModal() {
   modalWindow.classList.remove('is-open');
   modalMovie.innerHTML = '';
+
+  //*for body no-scroll *
+  bodyEl.classList.remove('modal-is-open');
+  //*
 }
 
 function onCloseModalWindow(evt) {

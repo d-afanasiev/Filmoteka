@@ -15,7 +15,17 @@
 .lightbox.is-open {
   opacity: 1;
   pointer-events: initial;
+
+  //*for body no-scroll *
+  z-index: 1;
+  //*
 }
+
+//*for body no-scroll *
+.modal-is-open {
+  overflow: hidden;
+}
+//*
 
 .lightbox__overlay {
   position: absolute;
