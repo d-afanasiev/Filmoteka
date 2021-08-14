@@ -82,6 +82,11 @@
   font-size: 12px;
   line-height: 1.67;
 
+  @media screen and (max-width: 320px) {
+    height: 80vh;
+    overflow: auto;
+  }
+
   @media screen and (min-width: 768px) {
     min-height: 400px;
     width: 618px;
