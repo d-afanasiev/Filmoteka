@@ -11,23 +11,22 @@ function addToLibaryWatch() {
 
   function watch(e) {
     let filmId = e.target.dataset.movieId;
-      fetchMovieId(filmId).then(response => {
-        let answer = response.data;
-        if (e.target.textContent === 'add to Watched') {
-          save('watched', answer);
-          filmsWatch.push(answer);
-          localStorage.setItem('watched', JSON.stringify(filmsWatch));
-          e.target.textContent = 'remove from Watched';
-        } else {
-          deleteObj('watched', answer.id);
-          let Idx = filmsWatch.findIndex(option => option.id == filmId);
-          filmsWatch.splice(Idx, 1);
-          localStorage.setItem('watched', JSON.stringify(filmsWatch));
-          e.target.textContent = 'add to Watched';
-          onButtonWatch.classList.remove('modal__button-active');
-        }
-      });
-    }
+    fetchMovieId(filmId).then(response => {
+      let answer = response.data;
+      if (e.target.textContent === 'add to Watched') {
+        save('watched', answer);
+        filmsWatch.push(answer);
+        localStorage.setItem('watched', JSON.stringify(filmsWatch));
+        e.target.textContent = 'remove from Watched';
+      } else {
+        deleteObj('watched', answer.id);
+        let Idx = filmsWatch.findIndex(option => option.id == filmId);
+        filmsWatch.splice(Idx, 1);
+        localStorage.setItem('watched', JSON.stringify(filmsWatch));
+        e.target.textContent = 'add to Watched';
+        onButtonWatch.classList.remove('modal__button-active');
+      }
+    });
   }
 }
 
