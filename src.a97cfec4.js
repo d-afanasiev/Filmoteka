@@ -115,4 +115,4 @@ const o={arrowTop:document.querySelector(".arrow-top"),headerHome:document.query
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/main"),require("./js/modal"),require("./js/renderMainPage"),require("./js/moveToLocalStorage"),require("./js/arrowScroll"),require("./js/renderWatchedQueue");
 },{"./sass/main.scss":"clu1","./js/main":"d6sW","./js/modal":"RSqK","./js/renderMainPage":"zrqp","./js/moveToLocalStorage":"VWcB","./js/arrowScroll":"FgZX","./js/renderWatchedQueue":"c2eG"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.395f5133.js.map
+//# sourceMappingURL=/Filmoteka/src.a97cfec4.js.map
