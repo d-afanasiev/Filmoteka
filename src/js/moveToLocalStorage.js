@@ -15,6 +15,7 @@ function addToLibaryWatch() {
         save('watched', answer);
         refreshPage('watched');
         e.target.textContent = 'remove from Watched';
+        onButtonWatch.classList.add('modal__button-active');
       } else {
         deleteObj('watched', answer.id);
         e.target.textContent = 'add to Watched';
@@ -38,9 +39,11 @@ function addToLibaryQueue() {
         save('queue', answer);
         refreshPage('queue');
         e.target.textContent = 'remove from Queue';
+        onButtonQueue.classList.add('modal__button-active');
       } else {
         deleteObj('queue', answer.id);
         e.target.textContent = 'add to Queue';
+        onButtonQueue.classList.remove('modal__button-active');
         refreshPage('queue');
       }
     });
