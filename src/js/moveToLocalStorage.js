@@ -1,9 +1,7 @@
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
 import axios from 'axios';
-import { save, deleteObj } from './actionWithLS';
-let filmsWatch = [];
-let filmsQueue = [];
+import { save, deleteObj, refreshPage } from './actionWithLS';
 
 function addToLibaryWatch() {
   const onButtonWatch = document.querySelector('.modal__button-add');
@@ -15,11 +13,13 @@ function addToLibaryWatch() {
       let answer = response.data;
       if (e.target.textContent === 'add to Watched') {
         save('watched', answer);
+        refreshPage('watched');
         e.target.textContent = 'remove from Watched';
       } else {
         deleteObj('watched', answer.id);
         e.target.textContent = 'add to Watched';
         onButtonWatch.classList.remove('modal__button-active');
+        refreshPage('watched');
       }
     });
   }
@@ -36,10 +36,12 @@ function addToLibaryQueue() {
       let answer = response.data;
       if (e.target.textContent === 'add to Queue') {
         save('queue', answer);
+        refreshPage('queue');
         e.target.textContent = 'remove from Queue';
       } else {
         deleteObj('queue', answer.id);
         e.target.textContent = 'add to Queue';
+        refreshPage('queue');
       }
     });
   }

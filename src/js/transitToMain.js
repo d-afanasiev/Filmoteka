@@ -25,6 +25,8 @@ function transitToHomePage() {
   libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
   libraryButtonsBlockEl.classList.remove('library-buttons-block');
   renderFilm();
+  localStorage.setItem('isLibrary', JSON.stringify(false));
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
   headerInput.value = '';
 }
 
@@ -45,6 +47,7 @@ function transitToMyLibraryPage() {
   const spinner = new Spinner({ message: 'Loading....' });
   spinner.show();
   renderWatchedQueueFilms('watched');
+  localStorage.setItem('isLibrary', JSON.stringify(true));
   spinner.hide();
 }
 
@@ -60,11 +63,14 @@ queueButtonEl.addEventListener('click', showQueue);
 function showWatched() {
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
   renderWatchedQueueFilms('watched');
+
 }
 
 function showQueue() {
   queueButtonEl.classList.add('library-button-active');
   watchedButtonEl.classList.remove('library-button-active');
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(false));
   renderWatchedQueueFilms('queue');
 }

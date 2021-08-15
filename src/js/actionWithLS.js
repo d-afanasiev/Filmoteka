@@ -1,3 +1,5 @@
+import { renderWatchedQueueFilms } from "./renderWatchedQueue";
+
 export function initLocalStorage() {
     if (localStorage.getItem('watched') === "" || localStorage.getItem('watched') === null) {
         localStorage.setItem('watched', JSON.stringify([]));
@@ -5,6 +7,21 @@ export function initLocalStorage() {
 
     if (localStorage.getItem('queue') === "" || localStorage.getItem('queue') === null) {
         localStorage.setItem('queue', JSON.stringify([]));
+    }
+
+    localStorage.setItem('isLibrary', JSON.stringify(false));
+    localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
+}
+
+export function refreshPage(key) {
+    if (JSON.parse(localStorage.getItem('isLibrary')) === true) {
+        if (JSON.parse(localStorage.getItem('isWatchedLibrary')) === true) {
+            renderWatchedQueueFilms('watched');
+        }
+        else {
+            renderWatchedQueueFilms('queue');
+        }
+
     }
 }
 
