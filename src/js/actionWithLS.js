@@ -1,9 +1,9 @@
 export function initLocalStorage() {
-    if (localStorage.getItem('watched') === "") {
+    if (localStorage.getItem('watched') === "" || localStorage.getItem('watched') === null) {
         localStorage.setItem('watched', JSON.stringify([]));
     }
 
-    if (localStorage.getItem('queue') === "") {
+    if (localStorage.getItem('queue') === "" || localStorage.getItem('queue') === null) {
         localStorage.setItem('queue', JSON.stringify([]));
     }
 }
