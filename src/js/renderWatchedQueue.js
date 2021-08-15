@@ -1,6 +1,7 @@
 import hbs from '../templates/cardMainPage.hbs';
 import Notiflix from 'notiflix';
 import { load } from './actionWithLS';
+import genreList from './json/genres.json';
 
 // *for pagination*
 import { opt } from './pagination';
@@ -14,6 +15,26 @@ setContainerHidden(true);
 const filmList = document.querySelector('.film-list');
 let filmsArray = [];
 
+function genresIdConverter(el) {
+  if (el.genres.length === 0) {
+    return (el.genres = 'Other');
+  }
+  el.genres = el.genres
+    .map((genre) => genre.id = genreList[genre.id])
+    .slice(0, 2)
+    .join(', ');
+
+  return el;
+}
+
+function sliceDate(el) {
+  if (!el.release_date) {
+    return (el.release_date = 'Unknown date');
+  } else {
+    return (el.release_date = el.release_date.slice(0, -6));
+  }
+}
+
 export function renderWatchedQueueFilms(key) {
   filmList.innerHTML = '';
 
@@ -22,6 +43,15 @@ export function renderWatchedQueueFilms(key) {
   if (filmsArray.length > 0) {
     filmList.innerHTML = '';
     pageNumber = 1;
+
+    filmsArray.map(el => {
+      genresIdConverter(el);
+      sliceDate(el);
+    });
+
+    filmsArray.map(el => {
+      delete Object.assign(el, { genre_ids: el.genres });
+    });
 
     filmList.innerHTML = hbs(filmsArray);
 
