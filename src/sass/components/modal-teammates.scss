@@ -439,7 +439,30 @@
 .teammate__image,
 .image-wrapper,
 .teammate,
-.team-list__item {
+.team-list__item,
+.icon,
+.modal__template,
+.modal__button,
+.modal,
+.lightbox__overlay,
+.lightbox {
   // outline: red dotted 2px;
   background-color: rgba($color: #667022, $alpha: 0.2);
+}
+
+.lightbox {
+  background-color: rgba($color: #0300ba, $alpha: 0.5);
+}
+
+.social__icon--email {
+  background-image: url('../../src/images/email.svg');
+}
+.social__icon--github {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../src/images/github.svg');
+}
+.social__icon--linkedin {
+  background-image: url('../../src/images/linkedin.svg');
 }
