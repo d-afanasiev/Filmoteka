@@ -3,15 +3,10 @@ import markup from '../templates/markupModal.hbs';
 import storageLibraryMovies from '../js/moveToLocalStorage';
 import { fetchMovieId } from './fetchAPI';
 
-//*for body no-scroll *
-const bodyEl = document.querySelector('body');
-//*
+import { refs } from './refs';
 
-const filmList = document.querySelector('.film-list');
-const modalMovie = document.querySelector('.modal__template');
-const modalWindow = document.querySelector('.lightbox');
-const closeBtn = document.querySelector('.modal__button');
-const watchButton = document.querySelector('.modal__button-add');
+const { bodyEl, filmList, modalMovie, modalWindow, closeBtn, watchButton } = refs;
+
 let localWatched = [];
 let localQueue = [];
 
@@ -34,8 +29,8 @@ function onClick(e) {
       queueButton();
 
       function watchButton() {
-        const watchButton = document.querySelector('.modal__button-add');
-        localWatched = JSON.parse(localStorage.getItem('watched'));
+        const watchButton = document.querySelector('.modal__button-add'),
+          localWatched = JSON.parse(localStorage.getItem('watched'));
         let filmId = e.target.dataset.id;
         if (localWatched != null) {
           let Idx = localWatched.findIndex(option => option.id === Number.parseInt(filmId));
@@ -47,8 +42,8 @@ function onClick(e) {
       }
 
       function queueButton() {
-        const queueButton = document.querySelector('.modal__button-queue');
-        localQueue = JSON.parse(localStorage.getItem('queue'));
+        const queueButton = document.querySelector('.modal__button-queue'),
+          localQueue = JSON.parse(localStorage.getItem('queue'));
         let filmIdQueue = e.target.dataset.id;
         if (localQueue != null) {
           let IdxQueue = localQueue.findIndex(option => option.id === Number.parseInt(filmIdQueue));

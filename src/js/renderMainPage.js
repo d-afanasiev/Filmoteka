@@ -1,5 +1,4 @@
 import hbs from '../templates/cardMainPage.hbs';
-import { debounce } from 'lodash';
 import Notiflix from 'notiflix';
 import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
 import genreList from './json/genres.json';
@@ -17,8 +16,9 @@ setContainerHidden(true);
 let inputValue;
 //*
 
-const filmList = document.querySelector('.film-list');
-const search = document.querySelector('.header__form');
+import { refs } from './refs';
+
+const { filmList, search } = refs;
 
 function genresIdConverter(el) {
   if (el.genre_ids.length === 0) {
