@@ -17,7 +17,6 @@ const closeLightboxBtn = document.querySelector('button[data-action="close-light
 const teamList = document.querySelector('.js-team-list');
 
 teamList.insertAdjacentHTML('beforeend', teammatesHTML);
-console.log('🚀 ~  teammatesHTML', teammatesHTML);
 
 footerTeamLink.addEventListener('click', onFooterTeamLinkClick);
 
@@ -62,7 +61,7 @@ function closeLightbox() {
 }
 
 function onEscBtnKeydown(e) {
-  const isEscBtnClicked = e.code === 'Escape';
+  const isEscBtnClicked = e.key === 'Escape';
 
   if (isEscBtnClicked) {
     closeLightbox();
