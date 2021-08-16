@@ -1,5 +1,6 @@
 import { renderFilm } from './renderMainPage';
 import Spinner from './utils/spinner';
+import { renderWatchedQueueFilms } from './renderWatchedQueue';
 
 const homeButtonEl = document.querySelector('.home-button');
 const myLibraryButtonEl = document.querySelector('.my-library-button');
@@ -24,6 +25,8 @@ function transitToHomePage() {
   libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
   libraryButtonsBlockEl.classList.remove('library-buttons-block');
   renderFilm();
+  localStorage.setItem('isLibrary', JSON.stringify(false));
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
   headerInput.value = '';
 }
 
@@ -43,11 +46,9 @@ function transitToMyLibraryPage() {
   queueButtonEl.classList.remove('library-button-active');
   const spinner = new Spinner({ message: 'Loading....' });
   spinner.show();
-
-  setInterval(() => {
-    spinner.hide();
-  }, 2000);
-  console.log('Here function for show Watched');
+  renderWatchedQueueFilms('watched');
+  localStorage.setItem('isLibrary', JSON.stringify(true));
+  spinner.hide();
 }
 
 logoBlockEl.addEventListener('click', transitToHomePage);
@@ -62,13 +63,14 @@ queueButtonEl.addEventListener('click', showQueue);
 function showWatched() {
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
+  renderWatchedQueueFilms('watched');
 
-  console.log('Here function for show Watched');
 }
 
 function showQueue() {
   queueButtonEl.classList.add('library-button-active');
   watchedButtonEl.classList.remove('library-button-active');
-
-  console.log('Here function for show Queue');
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(false));
+  renderWatchedQueueFilms('queue');
 }
