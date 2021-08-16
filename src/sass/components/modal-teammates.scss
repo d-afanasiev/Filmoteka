@@ -428,3 +428,18 @@
 //   fill: $icon-social;
 //   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 // }
+
+// TEMP STYLES
+.social__icon,
+.social-link,
+.social__item,
+.socials,
+.role,
+.name,
+.teammate__image,
+.image-wrapper,
+.teammate,
+.team-list__item {
+  // outline: red dotted 2px;
+  background-color: rgba($color: #667022, $alpha: 0.2);
+}
