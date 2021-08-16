@@ -20,7 +20,7 @@
     "socials": [
       { "type": "github", "url": "https://github.com/stas-yushkov" },
       { "type": "linkedin", "url": "https://www.linkedin.com/in/stanislav-yushkov-4603a729/" },
-      { "type": "e-mail", "url": "stas.yushkov@gmail.com" }
+      { "type": "email", "url": "stas.yushkov@gmail.com" }
     ]
   },
   {
@@ -94,7 +94,7 @@
     "socials": [
       { "type": "github", "url": "https://github.com/test" },
       { "type": "linkedin", "url": "https://www.linkedin.com/in/test/" },
-      { "type": "e-mail", "url": "test@gmail.com" }
+      { "type": "email", "url": "test@gmail.com" }
     ]
   }
 ]
