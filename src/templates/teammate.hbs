@@ -1,24 +1,31 @@
 {{#each this}}
   <!-- /////////////////////////////////////////////////////////////////////////-->
-  <li>
+  <li class='team-list__item' data-id='{{id}}'>
     <article class='teammate'>
       <div class='image-wrapper'>
-        <img src='{{img}}' alt='{{name}}' />
+        <img
+          srcset='{{img.url}} 1x, {{img.large-url}} 2x'
+          src='{{img.url}}'
+          alt='Photo of {{name}}'
+          width='200'
+          height='200'
+          class='teammate__image'
+        />
       </div>
 
       <div class='caption'>
-        <p class='name'>
-          //
-        </p>
+        <h3 class='name'>
+          {{name}}
+        </h3>
 
         <p class='role'>
           {{role}}
         </p>
 
-        <ul class='social'>
+        <ul class='socials'>
           {{#each this.socials}}
             <li class='social__item'>
-              <a href='{{url}}' class='social-link social-link__{{type}}'>
+              <a href='{{url}}' class='social-link'>
                 <svg class='social__icon' width='20' height='20'>
                   <use href='./images/symbol-defs.svg#icon-{{type}}'></use>
                 </svg>
@@ -32,11 +39,17 @@
   </li>
 {{/each}}
 
-{{! <li class="teams__item">
-          <img src="../src/images/teammates/aleksandr-seleznyov.jpg" alt="aleksandr-seleznyov" />
-          <div class="teams__content">
-            <h3 class="teams__subtitle">aleksandr-seleznyov</h3>
-            <p class="teams__text">dev</p>
+{{! <li class='teams__item'>
+  <img src='../src/images/teammates/aleksandr-seleznyov.jpg' alt='aleksandr-seleznyov' />
+  <div class='teams__content'>
+    <h3 class='teams__subtitle'>aleksandr-seleznyov</h3>
+    <p class='teams__text'>dev</p>
 
-          </div>
-        </li> }}
+  </div>
+</li> }}
+
+{{!     "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg@x2"
+    },
+     }}
