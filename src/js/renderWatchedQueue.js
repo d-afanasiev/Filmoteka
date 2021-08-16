@@ -8,6 +8,7 @@ import { itemsPerPage, opt } from './pagination';
 import { pagination } from './pagination';
 import { myPagination } from './pagination';
 import { setContainerHidden } from './pagination';
+let functionKey = '';
 //*
 
 import { refs } from './refs';
@@ -37,43 +38,56 @@ function sliceDate(el) {
 }
 
 export function renderWatchedQueueFilms(key) {
-  filmList.innerHTML = '';
-
-  filmsArray = load(key);
-
-  if (filmsArray.length > 0) {
-    filmList.innerHTML = '';
-
-    filmsArray.map(el => {
-      genresIdConverter(el);
-      sliceDate(el);
-    });
-
-    filmsArray.map(el => {
-      delete Object.assign(el, { genre_ids: el.genres });
-    });
-
-    // *for pagination *
-    setContainerHidden(true);
-    opt.totalItems = filmsArray.length;
-    opt.page = 1;
-    pagination();
-
     function renderFilmsPerPage(page) {
-      let startFrom = (page - 1) * itemsPerPage;
-      let endOn = startFrom + itemsPerPage;
-      filmList.innerHTML = hbs(filmsArray.slice(startFrom, endOn));
-    }
+            let startFrom = (page - 1) * itemsPerPage;
+            let endOn = startFrom + itemsPerPage;
+            filmList.innerHTML = hbs(filmsArray.slice(startFrom, endOn));
+    };
+    
+    if (key !== functionKey) {
+        opt.page = 1;
+    };
 
-    renderFilmsPerPage(opt.page);
+    filmsArray = load(key);
+    filmList.innerHTML = '';
+    setContainerHidden(true);
+    
+    if (filmsArray.length > 0) {
+        renderFilmsPerPage(opt.page);
 
-    if (filmsArray.length > opt.itemsPerPage) {
-      setContainerHidden(false);
-      myPagination.on('afterMove', function (eventData) {
+        filmsArray.map(el => {
+        genresIdConverter(el);
+        sliceDate(el);
+        });
+
+        filmsArray.map(el => {
+            delete Object.assign(el, { genre_ids: el.genres });
+        });
+
+        // *for pagination *
+        opt.totalItems = filmsArray.length;
+        pagination();
+   
+            if (filmsArray.length > opt.itemsPerPage) {
+                setContainerHidden(false);
+                renderFilmsPerPage(opt.page);
+
+                myPagination.on('afterMove', function (eventData) {
+                filmList.innerHTML = "";
+                opt.page = eventData.page;                  
+                    renderFilmsPerPage(eventData.page);
+                    
+                functionKey = key;
+            });
+        }
+        //*
+    } else {
         filmList.innerHTML = '';
-        opt.pageNumber = eventData.page;
-        renderFilmsPerPage(eventData.page);
-      });
+        if (key === "queue") {
+            Notiflix.Notify.failure("You don't have any film in your queue");
+        } if (key === "watched") {
+            Notiflix.Notify.failure("You don't have any watched film");
+        }
     }
     //*
   } else {
