@@ -18,7 +18,7 @@ class Spinner {
     // className	notiflix-block	string
     // Changes the class name of the Block module elements.
 
-    position = 'absolute',
+    position = 'fixed',
     // position	absolute	string
     // Changes the position of the Block module elements.
 
@@ -26,7 +26,7 @@ class Spinner {
     // zindex	1000	number
     // Changes the z-index.
 
-    backgroundColor = 'rgba(255,255,255,0.9)',
+    backgroundColor = 'rgba(255,255,255,1)',
     // backgroundColor	rgba(255,255,255,0.9)	string
     // Changes the background color. You can use HEX, RGB or RGBA.
 
@@ -46,11 +46,11 @@ class Spinner {
     // cssAnimation	true	boolean
     // Notiflix uses CSS animations to show/hide the Block module elements. If you don't want to use CSS animations you can set this option to false
 
-    cssAnimationDuration = 300,
+    cssAnimationDuration = 2000,
     // cssAnimationDuration	300	number
     // Changes the CSS animations duration as milliseconds. Tip: 300 ms = 0.3 second.
 
-    svgSize = '45px',
+    svgSize = '100px',
     // svgSize	45px	string
     // Changes the SVG Icons width and height. (Notiflix uses square scaled icons.)
 
