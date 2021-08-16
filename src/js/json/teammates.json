@@ -1,32 +1,100 @@
 [
   {
-    "name": "aleksandr-seleznyov.jpg"
+    "id": 1,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/dmitriy-afanasiev.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/dmitriy-afanasiev.jpg@x2"
+    },
+    "name": "dmitriy-afanasiev",
+    "role": "team lead",
+    "socials": [{ "type": "github", "url": "https://github.com/d-afanasiev" }]
   },
   {
-    "name": "dmitriy-afanasiev.jpg"
-  },
-  {
-    "name": "marian-moskal.jpg"
-  },
-  {
-    "name": "alex-tvardievich.jpg"
-  },
-  {
-    "name": "kostia-chaikovskiy.jpg"
-  },
-  {
-    "name": "artem-loshkarov.jpg"
-  },
-  {
-    "name": "maksym-chyshko.jpg"
-  },
-  {
-    "img": "url_to_img",
-    "name": "stanislav-yushkov.jpg",
-    "role": "Scrum",
+    "id": 2,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg@x2"
+    },
+    "name": "stanislav-yushkov",
+    "role": "scrum master",
     "socials": [
-      { "type": "github", "url": "url_to_GH" },
-      { "type": "linkedin", "url": "url_to_linkedin" }
+      { "type": "github", "url": "https://github.com/stas-yushkov" },
+      { "type": "linkedin", "url": "https://www.linkedin.com/in/stanislav-yushkov-4603a729/" },
+      { "type": "e-mail", "url": "stas.yushkov@gmail.com" }
+    ]
+  },
+  {
+    "id": 3,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/aleksandr-seleznyov.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/aleksandr-seleznyov.jpg@x2"
+    },
+    "name": "aleksandr-seleznyov",
+    "role": "developer",
+    "socials": []
+  },
+  {
+    "id": 4,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/marian-moskal.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/marian-moskal.jpg@x2"
+    },
+    "name": "marian-moskal",
+    "role": "developer",
+    "socials": [{ "type": "github", "url": "https://github.com/MarianMoskal" }]
+  },
+  {
+    "id": 5,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/alex-tvardievich.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/alex-tvardievich.jpg@x2"
+    },
+    "name": "alex-tvardievich",
+    "role": "developer",
+    "socials": [{ "type": "github", "url": "https://github.com/AlexTvardGit" }]
+  },
+  {
+    "id": 6,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/kostia-chaikovskiy.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/kostia-chaikovskiy.jpg@x2"
+    },
+    "name": "kostia-chaikovskiy",
+    "role": "developer",
+    "socials": [{ "type": "github", "url": "https://github.com/k4mmm" }]
+  },
+  {
+    "id": 7,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/artem-loshkarov.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/artem-loshkarov.jpg@x2"
+    },
+    "name": "artem-loshkarov",
+    "role": "developer",
+    "socials": [{ "type": "github", "url": "https://github.com/Troj94" }]
+  },
+  {
+    "id": 8,
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/maksym-chyshko.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/maksym-chyshko.jpg@x2"
+    },
+    "name": "maksym-chyshko",
+    "role": "developer",
+    "socials": [{ "type": "github", "url": "https://github.com/Maks2090" }]
+  },
+  {
+    "id": "test",
+    "img": {
+      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg",
+      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg@x2"
+    },
+    "name": "test-testtttttt",
+    "role": "tester",
+    "socials": [
+      { "type": "github", "url": "https://github.com/test" },
+      { "type": "linkedin", "url": "https://www.linkedin.com/in/test/" },
+      { "type": "e-mail", "url": "test@gmail.com" }
     ]
   }
 ]
