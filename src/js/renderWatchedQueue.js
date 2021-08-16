@@ -78,5 +78,17 @@ export function renderWatchedQueueFilms(key) {
     //*
   } else {
     Notiflix.Notify.failure("You don't have any film in your library");
+    // *for pagination *
+    opt.totalItems = filmsArray.length;
+    opt.page = 1;
+    pagination();
+    if (filmsArray.length > opt.itemsPerPage) {
+      setContainerHidden(false);
+      myPagination.on('afterMove', function (eventData) {
+        filmList.innerHTML = '';
+        opt.pageNumber = eventData.page;
+        renderFilmsPerPage(eventData.page);
+      });
+    }
   }
 }
