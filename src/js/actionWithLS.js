@@ -81,7 +81,6 @@ export function deleteObj(key, value) {
 
         const resultFilms = array.filter((item) => item.id !== value);
         localStorage.setItem(key, JSON.stringify(resultFilms));
-
     }
     catch (error) {
         console.error("Remove state error: ", error.message);
