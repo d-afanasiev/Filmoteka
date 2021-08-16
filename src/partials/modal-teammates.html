@@ -1,14 +1,12 @@
-<div class="lightboxQQ js-team-lightbox">
-  <div class="lightbox-team__overlay">
-    <div class="lightbox__contentQQ">
-      <ul class="team-list js-team-list"></ul>
-    </div>
-  </div>
+<div class="lightbox is-open js-team-lightbox">
+  <div class="lightbox__overlay"></div>
+  <div class="modal">
+    <button type="button" class="modal__button" data-action="modal-close">
+      <svg width="20" height="20" class="icon">
+        <use href="../src/images/sprite.svg#close2"></use>
+      </svg>
+    </button>
 
-  <button type="buttonQQ" class="lightbox__buttonQQ" data-action="close-lightboxQQ">
-    <svg width="20" height="20" class="iconQQ">
-      <use href="../src/images/sprite.svg#close2"></use>
-    </svg>
-  </button>
-  <!-- <button data-modal-close type="button" class="modal__button"></button> -->
+    <ul class="team-list js-team-list"></ul>
+  </div>
 </div>
