@@ -1,6 +1,4 @@
-const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
-import axios from 'axios';
+import { fetchMovieId } from './fetchAPI';
 import { save, deleteObj, refreshPage } from './actionWithLS';
 
 function addToLibaryWatch() {
@@ -48,12 +46,6 @@ function addToLibaryQueue() {
       }
     });
   }
-}
-
-function fetchMovieId(movieId) {
-  const url = `${BASE_URL}${movieId}?api_key=${API_KEY}&language=en-US`;
-  const response = axios.get(url);
-  return response;
 }
 
 export default { addToLibaryWatch, addToLibaryQueue };

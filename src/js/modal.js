@@ -1,9 +1,7 @@
 import axios from 'axios';
 import markup from '../templates/markupModal.hbs';
 import storageLibraryMovies from '../js/moveToLocalStorage';
-
-const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-const API_KEY = '4e286c2ceeb7113ef3a7d57d0bdb7157';
+import { fetchMovieId } from './fetchAPI';
 
 //*for body no-scroll *
 const bodyEl = document.querySelector('body');
@@ -16,14 +14,6 @@ const closeBtn = document.querySelector('.modal__button');
 const watchButton = document.querySelector('.modal__button-add');
 let localWatched = [];
 let localQueue = [];
-
-function fetchMovieId(movieId) {
-  const url = `${BASE_URL}${movieId}?api_key=${API_KEY}&language=en-US`;
-
-  const response = axios.get(url);
-
-  return response;
-}
 
 filmList.addEventListener('click', onClick);
 
