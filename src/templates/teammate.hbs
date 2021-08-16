@@ -24,11 +24,7 @@
         <ul class='socials'>
           {{#each this.socials}}
             <li class='social__item'>
-              <a href='{{url}}' class='social-link'>
-                <svg class='social__icon' width='20' height='20'>
-                  <use href='../src/images/sprite.svg#{{type}}'></use>
-                </svg>
-              </a>
+              <a href='{{url}}' class='social-link social__icon social__icon--{{type}}'></a>
             </li>
           {{/each}}
         </ul>
