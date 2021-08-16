@@ -1,6 +1,18 @@
+import teammateTpl from '../templates/teammate.hbs';
+import teammatesData from './json/teammates.json';
+console.log('🚀 ~ teammatesData', teammatesData);
+
+console.log('🚀 ~  teammateTpl', teammateTpl);
+
+const teammatesHTML = teammateTpl(teammatesData);
+console.log('🚀 ~  teammatesHTML', teammatesHTML);
+
 const footerTeamLink = document.querySelector('.footer__team-link');
 const lightboxRef = document.querySelector('.js-team-lightbox');
 const closeLightboxBtn = document.querySelector('button[data-action="close-lightbox"]');
+const teamList = document.querySelector('.js-team-list');
+
+teamList.insertAdjacentHTML('beforeend', teammatesHTML);
 
 footerTeamLink.addEventListener('click', onFooterTeamLinkClick);
 

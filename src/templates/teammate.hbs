@@ -1,0 +1,42 @@
+{{#each this}}
+  <!-- /////////////////////////////////////////////////////////////////////////-->
+  <li>
+    <article class='teammate'>
+      <div class='image-wrapper'>
+        <img src='{{img}}' alt='{{name}}' />
+      </div>
+
+      <div class='caption'>
+        <p class='name'>
+          //
+        </p>
+
+        <p class='role'>
+          {{role}}
+        </p>
+
+        <ul class='social'>
+          {{#each this.socials}}
+            <li class='social__item'>
+              <a href='{{url}}' class='social-link social-link__{{type}}'>
+                <svg class='social__icon' width='20' height='20'>
+                  <use href='./images/symbol-defs.svg#icon-{{type}}'></use>
+                </svg>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </article>
+
+  </li>
+{{/each}}
+
+{{! <li class="teams__item">
+          <img src="../src/images/teammates/aleksandr-seleznyov.jpg" alt="aleksandr-seleznyov" />
+          <div class="teams__content">
+            <h3 class="teams__subtitle">aleksandr-seleznyov</h3>
+            <p class="teams__text">dev</p>
+
+          </div>
+        </li> }}

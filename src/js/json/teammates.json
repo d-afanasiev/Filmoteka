@@ -1,0 +1,32 @@
+[
+  {
+    "name": "aleksandr-seleznyov.jpg"
+  },
+  {
+    "name": "dmitriy-afanasiev.jpg"
+  },
+  {
+    "name": "marian-moskal.jpg"
+  },
+  {
+    "name": "alex-tvardievich.jpg"
+  },
+  {
+    "name": "kostia-chaikovskiy.jpg"
+  },
+  {
+    "name": "artem-loshkarov.jpg"
+  },
+  {
+    "name": "maksym-chyshko.jpg"
+  },
+  {
+    "img": "url_to_img",
+    "name": "stanislav-yushkov.jpg",
+    "role": "Scrum",
+    "socials": [
+      { "type": "github", "url": "url_to_GH" },
+      { "type": "linkedin", "url": "url_to_linkedin" }
+    ]
+  }
+]
