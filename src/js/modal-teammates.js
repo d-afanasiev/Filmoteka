@@ -48,6 +48,7 @@ function closeLightbox() {
   window.removeEventListener('keydown', onEscBtnKeydown);
 
   enableBodyScroll(lightboxRef);
+  clearAllBodyScrollLocks();
 }
 
 function onEscBtnKeydown(e) {
