@@ -84,10 +84,10 @@ export function renderWatchedQueueFilms(key) {
   } else {
     filmList.innerHTML = '';
     if (key === 'queue') {
-      Notiflix.Notify.failure("You don't have any film in your queue");
+      Notiflix.Notify.warning("You don't have any film in your queue");
     }
     if (key === 'watched') {
-      Notiflix.Notify.failure("You don't have any watched film");
+      Notiflix.Notify.warning("You don't have any watched film");
     }
   }
   //*
