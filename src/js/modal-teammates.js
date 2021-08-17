@@ -1,5 +1,6 @@
 import teammateTpl from '../templates/teammate.hbs';
 import teammatesData from './json/teammates.json';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 const teammatesHTML = teammateTpl(
   teammatesData.map(teammate => {
@@ -29,11 +30,7 @@ function onFooterTeamLinkClick(e) {
   lightboxRef.addEventListener('click', onlightboxRefClick);
   window.addEventListener('keydown', onEscBtnKeydown);
 
-  // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-  const body = document.body;
-  body.style.position = 'fixed';
-  body.style.top = `-${scrollY}`;
+  disableBodyScroll(lightboxRef);
 }
 
 function onlightboxRefClick(e) {
@@ -50,12 +47,7 @@ function closeLightbox() {
   lightboxRef.removeEventListener('click', onlightboxRefClick);
   window.removeEventListener('keydown', onEscBtnKeydown);
 
-  // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = '';
-  body.style.top = '';
-  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  enableBodyScroll(lightboxRef);
 }
 
 function onEscBtnKeydown(e) {
@@ -65,8 +57,3 @@ function onEscBtnKeydown(e) {
     closeLightbox();
   }
 }
-
-// https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-window.addEventListener('scroll', () => {
-  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-});
