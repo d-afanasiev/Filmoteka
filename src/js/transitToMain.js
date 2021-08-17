@@ -1,16 +1,20 @@
 import { renderFilm } from './renderMainPage';
 import Spinner from './utils/spinner';
+import { renderWatchedQueueFilms } from './renderWatchedQueue';
 
-const homeButtonEl = document.querySelector('.home-button');
-const myLibraryButtonEl = document.querySelector('.my-library-button');
+import { refs } from './refs';
 
-const headerEl = document.querySelector('#header');
-const headerFormEl = document.querySelector('#header-form');
-const headerInput = document.querySelector('.header__input');
-
-const libraryButtonsBlockEl = document.querySelector('#library-buttons-block');
-
-const logoBlockEl = document.querySelector('#logo-block');
+const {
+  homeButtonEl,
+  myLibraryButtonEl,
+  headerEl,
+  headerFormEl,
+  headerInput,
+  libraryButtonsBlockEl,
+  logoBlockEl,
+  watchedButtonEl,
+  queueButtonEl,
+} = refs;
 
 homeButtonEl.addEventListener('click', transitToHomePage);
 
@@ -24,6 +28,8 @@ function transitToHomePage() {
   libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
   libraryButtonsBlockEl.classList.remove('library-buttons-block');
   renderFilm();
+  localStorage.setItem('isLibrary', JSON.stringify(false));
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
   headerInput.value = '';
 }
 
@@ -43,17 +49,13 @@ function transitToMyLibraryPage() {
   queueButtonEl.classList.remove('library-button-active');
   const spinner = new Spinner({ message: 'Loading....' });
   spinner.show();
-
-  setInterval(() => {
-    spinner.hide();
-  }, 2000);
-  console.log('Here function for show Watched');
+  renderWatchedQueueFilms('watched');
+  localStorage.setItem('isLibrary', JSON.stringify(true));
+  spinner.hide();
 }
 
 logoBlockEl.addEventListener('click', transitToHomePage);
 
-const watchedButtonEl = document.querySelector('#watched-button');
-const queueButtonEl = document.querySelector('#queue-button');
 watchedButtonEl.classList.add('library-button-active');
 
 watchedButtonEl.addEventListener('click', showWatched);
@@ -62,13 +64,13 @@ queueButtonEl.addEventListener('click', showQueue);
 function showWatched() {
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
-
-  console.log('Here function for show Watched');
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
+  renderWatchedQueueFilms('watched');
 }
 
 function showQueue() {
   queueButtonEl.classList.add('library-button-active');
   watchedButtonEl.classList.remove('library-button-active');
-
-  console.log('Here function for show Queue');
+  localStorage.setItem('isWatchedLibrary', JSON.stringify(false));
+  renderWatchedQueueFilms('queue');
 }

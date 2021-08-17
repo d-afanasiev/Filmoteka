@@ -8,7 +8,7 @@ export const setContainerHidden = arg => {
 
 const optionsForPagination = {
   // Total number of items
-  totalItems: 1000,
+  totalItems: 0,
 
   // Items per page
   itemsPerPage: itemsPerPage,
@@ -38,8 +38,6 @@ export function pagination() {
   return myPagination;
 }
 
-// export const myPagination = new Pagination(container, optionsForPagination);
-
 // myPagination.on('beforeMove', function(eventData) {
 //   var currentPage = eventData.page;
 
@@ -54,5 +52,3 @@ export function pagination() {
 //   var currentPage = eventData.page;
 //   console.log(currentPage);
 // });
-
-// export default {}

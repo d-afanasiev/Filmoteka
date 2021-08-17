@@ -1,19 +1,18 @@
-const refs = {
-  arrowTop: document.querySelector('.arrow-top'),
-  headerHome: document.querySelector('.header-home'),
-};
+import { refs } from './refs';
+
+const { arrowTop, headerHome } = refs;
 
 function arrowScrollTop() {
   if (window.scrollY > 50) {
-    refs.arrowTop.classList.add('arrow-show');
-    refs.arrowTop.classList.remove('arrow-hidden');
+    arrowTop.classList.add('arrow-show');
+    arrowTop.classList.remove('arrow-hidden');
   } else {
-    refs.arrowTop.classList.add('arrow-hidden');
-    refs.arrowTop.classList.remove('arrow-show');
+    arrowTop.classList.add('arrow-hidden');
+    arrowTop.classList.remove('arrow-show');
   }
 
-  refs.arrowTop.addEventListener('click', () => {
-    refs.headerHome.scrollIntoView({
+  arrowTop.addEventListener('click', () => {
+    headerHome.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
