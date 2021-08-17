@@ -5,3 +5,4 @@ import './js/renderMainPage';
 import './js/moveToLocalStorage';
 import './js/arrowScroll';
 import './js/renderWatchedQueue';
+import './js/modal-teammates';
