@@ -429,13 +429,16 @@
 //   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 // }
 
+.social__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
 .social__icon--email {
   background-image: url('../../src/images/email.svg');
 }
 .social__icon--github {
-  display: block;
-  width: 20px;
-  height: 20px;
   background-image: url('../../src/images/github.svg');
 }
 .social__icon--linkedin {
@@ -449,21 +452,65 @@
   width: 100%;
   height: 100%;
 
-  background-color: rgba($color: #00ba00, $alpha: 0.5);
+  // background-color: rgba($color: #00ba00, $alpha: 0.5);
   display: block;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+}
+
+.lightbox--teammates {
+  text-align: center;
+
+  .modal {
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .image-wrapper {
+    overflow: hidden;
+
+    position: relative;
+    height: 200px;
+    width: 100%;
+    border: 2px dashed #2a2a2a;
+    border-radius: 50%;
+  }
+
+  .teammate {
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .teammate__image {
+    object-fit: cover;
+
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .team-list__item {
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .lightbox--teammates {
   // TEMP STYLES
-  .social__icon,
-  .social-link,
   .social__item,
   .socials,
   .role,
   .name,
   .teammate__image,
   .image-wrapper,
-  .teammate,
+  // .teammate,
   .team-list__item,
   .icon,
   .modal__template,
