@@ -1,7 +1,7 @@
 .header-home {
   height: 230px;
   background-size: cover;
-  padding-top: 46px;
+  padding-top: 10px;
   padding-bottom: 59px;
 
   @media screen and (min-width: 320px) {
@@ -42,7 +42,7 @@
 .header-my-library {
   height: 230px;
   background-size: cover;
-  padding-top: 46px;
+  padding-top: 10px;
   padding-bottom: 59px;
 
   @media screen and (min-width: 320px) {
@@ -108,7 +108,7 @@
   font-size: 30px;
   margin-left: 10px;
 
-  @media screen and (min-width: 320px) and (max-width: 500px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 
