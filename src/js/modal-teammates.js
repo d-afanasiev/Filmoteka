@@ -13,8 +13,9 @@ const teammatesHTML = teammateTpl(
 );
 const footerTeamLink = document.querySelector('.footer__team-link');
 const lightboxRef = document.querySelector('.js-team-lightbox');
-const closeLightboxBtn = document.querySelector('button[data-action="close-lightbox"]');
+const closeLightboxBtn = document.querySelector('button[data-action="modal-close"]');
 const teamList = document.querySelector('.js-team-list');
+const lightboxOverlay = document.querySelector('.lightbox--teammates .lightbox__overlay');
 
 teamList.insertAdjacentHTML('beforeend', teammatesHTML);
 
@@ -22,8 +23,9 @@ footerTeamLink.addEventListener('click', onFooterTeamLinkClick);
 
 function onFooterTeamLinkClick(e) {
   e.preventDefault();
-  lightboxRef.classList.add('is-open');
+  lightboxRef.classList.add('is-opened');
 
+  closeLightboxBtn.addEventListener('click', closeLightbox);
   lightboxRef.addEventListener('click', onlightboxRefClick);
   window.addEventListener('keydown', onEscBtnKeydown);
 
@@ -35,13 +37,7 @@ function onFooterTeamLinkClick(e) {
 }
 
 function onlightboxRefClick(e) {
-  const isCloseBtnClicked = e.target.dataset.action === 'close-lightbox';
-
-  if (isCloseBtnClicked) {
-    closeLightbox();
-  }
-
-  const isLightbox__overlayClicked = e.target === document.querySelector('.lightbox-team__overlay');
+  const isLightbox__overlayClicked = e.target === lightboxOverlay;
 
   if (isLightbox__overlayClicked) {
     closeLightbox();
@@ -49,10 +45,12 @@ function onlightboxRefClick(e) {
 }
 
 function closeLightbox() {
-  lightboxRef.classList.remove('is-open');
-  closeLightboxBtn.removeEventListener('click', onlightboxRefClick);
+  lightboxRef.classList.remove('is-opened');
+  closeLightboxBtn.removeEventListener('click', closeLightbox);
+  lightboxRef.removeEventListener('click', onlightboxRefClick);
   window.removeEventListener('keydown', onEscBtnKeydown);
 
+  // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
   const body = document.body;
   const scrollY = body.style.top;
   body.style.position = '';
@@ -68,6 +66,7 @@ function onEscBtnKeydown(e) {
   }
 }
 
+// https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
 window.addEventListener('scroll', () => {
   document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
 });
