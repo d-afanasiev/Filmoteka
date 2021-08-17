@@ -56,6 +56,7 @@ export function renderFilm() {
         sliceDate(el);
       });
       filmList.innerHTML = hbs(r.results);
+      
 
       //*for pagination*
       opt.totalItems = r.total_results;
@@ -134,6 +135,7 @@ async function searchFilm(e) {
                 });
 
                 filmList.innerHTML = hbs(r.results);
+                
               });
             });
           }
@@ -162,3 +164,4 @@ async function searchFilm(e) {
     spinner.hide();
   }
 }
+

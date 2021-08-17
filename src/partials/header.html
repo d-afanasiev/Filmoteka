@@ -1,5 +1,7 @@
 <header id="header" class="header-home">
+  
   <div class="container">
+    
     <div class="header__nav-menu">
       <a id="logo-block" class="header__site-logo-block" href="#">
         <svg width="24" height="24">
@@ -17,7 +19,38 @@
           </li>
         </ul>
       </nav>
-    </div>
+       <!-- Разметка переключателя темы -->
+      
+        <div class="theme-switch">
+          <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+            <use href="./images/sprite.svg#sun"></use>
+          </svg>
+  
+          <div class="theme-switch__control">
+            <input
+              class="theme-switch__toggle"
+              type="checkbox"
+              name="theme"
+              id="theme-switch-toggle"
+              aria-label="Переключить между тёмной и светлой темой"
+            />
+            <label
+              aria-hidden="true"
+              class="theme-switch__track"
+              for="theme-switch-toggle"
+            >
+           </label>
+            <div aria-hidden="true" class="theme-switch__marker"></div>
+          </div>
+  
+          <svg class="theme-switch__icon" aria-label="Иконка луны">
+            <use href="./images/sprite.svg#moon"></use>
+          </svg>
+        </div>
+      </div>
+   
+       
+   
     <form id="header-form" class="header__form" action="#">
       <input class="header__input" type="text" placeholder="Поиск фильмов" />
       <svg width="12" height="12" class="header__input-icon">
@@ -29,6 +62,7 @@
         <li><a id="watched-button" class="header__link library-button" href="#">Watched</a></li>
         <li><a id="queue-button" class="header__link library-button" href="#">Queue</a></li>
       </ul>
-    </div>
+      
+      </div>
   </div>
 </header>
