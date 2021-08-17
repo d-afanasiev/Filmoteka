@@ -1,0 +1,136 @@
+:root {
+  --standart-indent: 15px;
+  --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.lightbox--teammates.is-opened {
+  opacity: 1;
+  pointer-events: all;
+  overflow: auto;
+  display: block;
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+  }
+}
+
+.lightbox--teammates {
+  text-align: center;
+  padding: var(--standart-indent) 0;
+
+  .lightbox__overlay {
+    position: fixed;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .social__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .social__icon--email {
+    background-image: url('../../src/images/email.svg');
+  }
+  .social__icon--github {
+    background-image: url('../../src/images/github.svg');
+  }
+  .social__icon--linkedin {
+    background-image: url('../../src/images/linkedin.svg');
+  }
+
+  .image-wrapper {
+    overflow: hidden;
+
+    position: relative;
+    height: 200px;
+    border-radius: 50%;
+
+    width: 100%;
+
+    margin-bottom: var(--standart-indent);
+  }
+
+  .teammate {
+    width: calc(200px + 2 * var(--standart-indent));
+    margin: 0 auto;
+    padding: var(--standart-indent);
+    background-color: #fff;
+
+    box-shadow: var(--card-shadow);
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  .teammate__image {
+    object-fit: cover;
+
+    display: block;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .team-list {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      padding: 0;
+      margin: 0;
+
+      flex-wrap: wrap;
+      margin-left: calc(-1 * var(--standart-indent));
+      margin-top: calc(-1 * var(--standart-indent));
+    }
+  }
+
+  .team-list__item {
+    margin-bottom: var(--standart-indent);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      flex-basis: calc(100% / 2 - var(--standart-indent));
+      margin-left: var(--standart-indent);
+      margin-top: var(--standart-indent);
+    }
+
+    @media screen and (min-width: 1024px) {
+      flex-basis: calc(100% / 3 - var(--standart-indent));
+    }
+
+    @media screen and (min-width: 1440px) {
+      flex-basis: calc(100% / 4 - var(--standart-indent));
+    }
+  }
+
+  .modal__button {
+    margin: 0 0 var(--standart-indent) auto;
+  }
+
+  .modal {
+    position: relative;
+    margin: 0 auto;
+
+    top: auto;
+    left: auto;
+    transform: translate(0, 0);
+    padding: var(--standart-indent);
+
+    @media screen and (min-width: 1440px) {
+      width: 80vw;
+    }
+  }
+
+  .name {
+    margin: 0 0 var(--standart-indent);
+  }
+
+  .role {
+    margin: 0 0 var(--standart-indent);
+  }
+}
