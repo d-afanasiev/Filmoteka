@@ -83,19 +83,5 @@
     "name": "maksym-chyshko",
     "role": "developer",
     "socials": [{ "type": "github", "url": "https://github.com/Maks2090" }]
-  },
-  {
-    "id": "test",
-    "img": {
-      "url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov.jpg?raw=true",
-      "large-url": "https://raw.githubusercontent.com/d-afanasiev/Filmoteka/main/src/images/teammates/stanislav-yushkov@x2.jpg?raw=true"
-    },
-    "name": "test-testtttttt",
-    "role": "tester",
-    "socials": [
-      { "type": "github", "url": "https://github.com/test" },
-      { "type": "linkedin", "url": "https://www.linkedin.com/in/test/" },
-      { "type": "email", "url": "test@gmail.com" }
-    ]
   }
 ]
