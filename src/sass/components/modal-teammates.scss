@@ -66,6 +66,8 @@
     border-radius: 50%;
 
     width: 100%;
+
+    margin-bottom: var(--standart-indent);
   }
 
   .teammate {
@@ -96,7 +98,7 @@
   }
 
   .modal__button {
-    margin: 0 0 0 auto;
+    margin: 0 0 var(--standart-indent) auto;
   }
 
   .modal {
@@ -104,6 +106,14 @@
     left: auto;
     transform: translate(0, 0);
     padding: var(--standart-indent);
+  }
+
+  .name {
+    margin: 0 0 var(--standart-indent);
+  }
+
+  .role {
+    margin: 0 0 var(--standart-indent);
   }
 }
 
@@ -119,6 +129,7 @@
   .team-list__item,
   // .icon,
   .modal__template,
+  .caption
   // .modal__button,
   // .modal
   {
