@@ -25,6 +25,18 @@ body.dark-theme {
 .modal.dark-theme {
   background-color: rgb(60, 66, 66);
   color: white;
+  & .modal__value-count {
+    color: #000000;
+  }
+}
+
+.dark-theme {
+  & .lightbox--teammates {
+    & .modal {
+      background-color: black;
+      color: white;
+    }
+  }
 }
 
 .modal.light-theme {
