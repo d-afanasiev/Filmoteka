@@ -23,8 +23,6 @@ function onClick(e) {
     return;
   }
 
-  const spinner = new Spinner({ message: 'Loading....' });
-  spinner.show();
   const movieId = activeImg.dataset.id;
   if (e.target.classList.value === 'film-list__img') {
     fetchMovieId(movieId)
@@ -66,8 +64,7 @@ function onClick(e) {
       })
       .catch(error =>
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
-      )
-      .finally(() => spinner.hide());
+      );
   }
 
   openModal();

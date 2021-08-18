@@ -47,11 +47,8 @@ function transitToMyLibraryPage() {
 
   watchedButtonEl.classList.add('library-button-active');
   queueButtonEl.classList.remove('library-button-active');
-  const spinner = new Spinner({ message: 'Loading....' });
-  spinner.show();
   renderWatchedQueueFilms('watched');
   localStorage.setItem('isLibrary', JSON.stringify(true));
-  spinner.hide();
 }
 
 logoBlockEl.addEventListener('click', transitToHomePage);
