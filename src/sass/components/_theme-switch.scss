@@ -33,8 +33,25 @@ body.dark-theme {
 .dark-theme {
   & .lightbox--teammates {
     & .modal {
-      background-color: black;
+      background-color: #3c4242;
       color: white;
+    }
+    & .team-list__item {
+      background-color: #000000;
+    }
+    & .teammate {
+      background-color: #000000;
+    }
+    & .social__icon--github {
+      background-color: white;
+      border-radius: 50%;
+    }
+    & .social__icon--linkedin {
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+    & .social__icon--email {
+      background-color: #ffffff;
     }
   }
 }
