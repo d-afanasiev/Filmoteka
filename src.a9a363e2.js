@@ -110,4 +110,4 @@ module.exports=[{id:1,img:{url:"https://raw.githubusercontent.com/d-afanasiev/Fi
 },{"../templates/teammate.hbs":"wu6C","./json/teammates.json":"V8f8","body-scroll-lock":"AK1d"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/transitToMain"),require("./js/modal"),require("./js/renderMainPage"),require("./js/moveToLocalStorage"),require("./js/arrowScroll"),require("./js/renderWatchedQueue"),require("./js/utils/themeswitch"),require("./js/modal-teammates");
 },{"./sass/main.scss":"clu1","./js/transitToMain":"l1wz","./js/modal":"RSqK","./js/renderMainPage":"zrqp","./js/moveToLocalStorage":"VWcB","./js/arrowScroll":"FgZX","./js/renderWatchedQueue":"c2eG","./js/utils/themeswitch":"uy3k","./js/modal-teammates":"tWmL"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.aa674137.js.map
+//# sourceMappingURL=/Filmoteka/src.a9a363e2.js.map
