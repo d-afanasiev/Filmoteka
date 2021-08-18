@@ -16,6 +16,8 @@ filmList.addEventListener('click', onClick);
 
 function onClick(e) {
   e.preventDefault();
+  const spinner = new Spinner({ message: 'Loading....' });
+  spinner.show();
 
   const activeImg = e.target;
 
@@ -25,8 +27,6 @@ function onClick(e) {
 
   const movieId = activeImg.dataset.id;
   if (e.target.classList.value === 'film-list__img') {
-    const spinner = new Spinner({ message: 'Loading....' });
-    spinner.show();
     fetchMovieId(movieId)
       .then(response => {
         modalMovie.innerHTML = markup(response.data);
