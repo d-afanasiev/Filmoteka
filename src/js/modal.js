@@ -16,8 +16,6 @@ filmList.addEventListener('click', onClick);
 
 function onClick(e) {
   e.preventDefault();
-  const spinner = new Spinner({ message: 'Loading....' });
-  spinner.show();
 
   const activeImg = e.target;
 
@@ -25,6 +23,8 @@ function onClick(e) {
     return;
   }
 
+  const spinner = new Spinner({ message: 'Loading....' });
+  spinner.show();
   const movieId = activeImg.dataset.id;
   if (e.target.classList.value === 'film-list__img') {
     fetchMovieId(movieId)

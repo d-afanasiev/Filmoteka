@@ -18,6 +18,7 @@ p {
   &__link {
     display: block;
     width: 280px;
+    min-height: inherit;
     // padding: 10px 10px 15px 10px;
   }
 
