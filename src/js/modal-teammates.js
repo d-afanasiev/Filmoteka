@@ -1,6 +1,9 @@
 import teammateTpl from '../templates/teammate.hbs';
 import teammatesData from './json/teammates.json';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { refs } from './refs';
+
+const { footerTeamLink, lightboxRef, closeLightboxBtn, teamList, lightboxOverlay } = refs;
 
 const teammatesHTML = teammateTpl(
   teammatesData.map(teammate => {
@@ -12,11 +15,6 @@ const teammatesHTML = teammateTpl(
     return teammate;
   }),
 );
-const footerTeamLink = document.querySelector('.footer__team-link');
-const lightboxRef = document.querySelector('.js-team-lightbox');
-const closeLightboxBtn = document.querySelector('button[data-action="modal-close"]');
-const teamList = document.querySelector('.js-team-list');
-const lightboxOverlay = document.querySelector('.lightbox--teammates .lightbox__overlay');
 
 teamList.insertAdjacentHTML('beforeend', teammatesHTML);
 

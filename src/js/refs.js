@@ -1,5 +1,5 @@
 export const refs = {
-  // transitToMain.js
+  // headerScripts.js
   homeButtonEl: document.querySelector('.home-button'),
   myLibraryButtonEl: document.querySelector('.my-library-button'),
 
@@ -31,4 +31,11 @@ export const refs = {
   // arrowScroll.js
   arrowTop: document.querySelector('.arrow-top'),
   headerHome: document.querySelector('.header-home'),
+
+  // modal-teammates.js
+  footerTeamLink: document.querySelector('.footer__team-link'),
+  lightboxRef: document.querySelector('.js-team-lightbox'),
+  closeLightboxBtn: document.querySelector('button[data-action="modal-close"]'),
+  teamList: document.querySelector('.js-team-list'),
+  lightboxOverlay: document.querySelector('.lightbox--teammates .lightbox__overlay'),
 };

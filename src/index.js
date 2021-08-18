@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import './js/transitToMain';
+import './js/headerScripts';
 import './js/modal';
 import './js/renderMainPage';
 import './js/moveToLocalStorage';
