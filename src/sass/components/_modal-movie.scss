@@ -50,7 +50,7 @@
   border: none;
   border-radius: 50%;
   background-color: transparent;
-  color: #fff;
+  color: var(--main-color);
   cursor: pointer;
   transition: opasity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
@@ -74,7 +74,7 @@
   width: 280px;
   min-height: 700px;
   height: auto;
-  background-color: #fff;
+  background-color: var(--main-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: Roboto;
   font-style: normal;
@@ -110,14 +110,14 @@
   margin-right: 8px;
   fill: #212121;
 
-  background-color: none;
+  background-color: transparent;
   border-radius: 30px;
   outline: 0;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover .icon,
   &:focus .icon {
-    fill: #ff6b08;
+    fill: var(--secondary-text-color);
     cursor: pointer;
   }
 }
@@ -174,10 +174,10 @@
   margin-right: 41px;
 }
 .modal__value-avarage {
-  background-color: #ff6b01;
+  background-color: var(--secondary-text-color);
   border-radius: 5px;
   padding: 0 10px 0 10px;
-  color: #ffffff;
+  color: var(--main-color);
 }
 .modal__value-count {
   background-color: #f7f7f7;
@@ -205,7 +205,7 @@
 .modal__button-queue {
   width: 112.58px;
   height: 44px;
-  background-color: #fff;
+  background-color: var(--main-color);
   border-radius: 5px;
   cursor: pointer;
   @media screen and (min-width: 768px) {
@@ -220,11 +220,14 @@
 }
 
 .modal__button-watched:hover,
-.modal__button-queue:hover {
-  background-color: #ff6b01;
-  color: #fff;
+.modal__button-watched:focus,
+.modal__button-queue:hover,
+.modal__button-queue:focus {
+  background-color: var(--secondary-text-color);
+  color: var(--main-color);
   border: none;
   cursor: pointer;
+  outline: none;
 }
 .modal__info {
   @media screen and (min-width: 768px) {
@@ -233,7 +236,7 @@
 }
 
 .modal__button-active {
-  background-color: #ff6b01;
-  color: #fff;
+  background-color: var(--secondary-text-color);
+  color: var(--main-color);
   border: none;
 }

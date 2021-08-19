@@ -1,32 +1,32 @@
 body.light-theme {
-  background-color: #fff;
-  color: black;
+  background-color: var(--main-color);
+  color: var(--main-text-color);
 }
 
 body.dark-theme {
-  background-color: black;
-  color: white;
+  background-color: var(--main-text-color);
+  color: var(--main-color);
 
   & .film-list__title {
-    color: white;
+    color: var(--main-color);
   }
 }
 
 .dark-theme {
-  background-color: black;
-  color: white;
+  background-color: var(--main-text-color);
+  color: var(--main-color);
 }
 
 .light-theme {
-  background-color: white;
-  color: black;
+  background-color: var(--main-color);
+  color: var(--main-text-color);
 }
 
 .modal.dark-theme {
   background-color: rgb(60, 66, 66);
-  color: white;
+  color: var(--main-color);
   & .modal__value-count {
-    color: #000000;
+    color: var(--main-text-color);
   }
 }
 
@@ -34,11 +34,13 @@ body.dark-theme {
   & .lightbox--teammates {
     & .modal {
       background-color: #3c4242;
-      color: white;
+      color: var(--main-color);
+    }
+    & .team-list__item {
+      background-color: var(--main-text-color);
     }
     & .teammate {
-      background-color: #222222;
-      box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
+      background-color: var(--main-text-color);
     }
     & .social__icon--github {
       background-image: url('../../src/images/github-rev.svg');
@@ -60,8 +62,8 @@ body.dark-theme {
 }
 
 .modal.light-theme {
-  background-color: white;
-  color: black;
+  background-color: var(--main-color);
+  color: var(--main-text-color);
 }
 
 /* THEME SWITCH */
@@ -74,7 +76,7 @@ body.dark-theme {
 }
 
 .theme-switch__icon {
-  color: #ffffff;
+  color: var(--main-color);
   height: 24px;
   width: 24px;
   margin-right: 8px;
@@ -120,7 +122,7 @@ body.dark-theme {
 
 .theme-switch__marker {
   position: relative;
-  background-color: #fff;
+  background-color: var(--main-color);
   width: 26px;
   height: 26px;
   border-radius: 50%;

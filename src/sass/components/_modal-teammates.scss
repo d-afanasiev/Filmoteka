@@ -133,7 +133,7 @@
     width: calc(200px + 2 * var(--standart-indent));
     margin: 0 auto;
     padding: var(--standart-indent);
-    background-color: #eee;
+    background-color: var(--main-color);
     box-shadow: var(--card-shadow);
     border-radius: 0px 0px 4px 4px;
   }

@@ -20,16 +20,17 @@ p {
     width: 280px;
     min-height: inherit;
     // padding: 10px 10px 15px 10px;
-  }
-
-  &__item {
-    min-height: 480px;
-    transition: transform 250ms linear;
+    transition: transform var(--animation-dur) var(--animation-type);
 
     &:hover,
     &:focus {
       transform: scale(1.05);
+      outline: none;
     }
+  }
+
+  &__item {
+    min-height: 480px;
   }
   &__thumb {
     background-color: #f7f7f7;
@@ -52,7 +53,7 @@ p {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: #000000;
+    color: var(--main-text-color);
     text-transform: uppercase;
   }
   &__genre {
@@ -63,7 +64,7 @@ p {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: #ff6b08;
+    color: var(--secondary-text-color);
   }
 }
 
