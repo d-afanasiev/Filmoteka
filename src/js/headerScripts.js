@@ -18,15 +18,18 @@ const {
 
 homeButtonEl.addEventListener('click', transitToHomePage);
 
+function homePageClassSwitcher(element, oldClass, newClass) {
+  element.classList.remove(oldClass);
+  element.classList.add(newClass);
+}
+
 function transitToHomePage() {
-  headerEl.classList.remove('header-my-library');
-  headerEl.classList.add('header-home');
-  homeButtonEl.classList.add('header__link--active');
-  myLibraryButtonEl.classList.remove('header__link--active');
-  headerFormEl.classList.add('header__form');
-  headerFormEl.classList.remove('header__form-disable');
-  libraryButtonsBlockEl.classList.add('library-buttons-block-disable');
-  libraryButtonsBlockEl.classList.remove('library-buttons-block');
+
+  homePageClassSwitcher(headerEl, 'header-my-library', 'header-home');
+  homePageClassSwitcher(headerFormEl, 'header__form-disable', 'header__form');
+  homePageClassSwitcher(libraryButtonsBlockEl, 'library-buttons-block', 'library-buttons-block-disable');
+  homePageClassSwitcher(homeButtonEl, null, 'header__link--active');
+  homePageClassSwitcher(myLibraryButtonEl, 'header__link--active', null);
   renderFilm();
   localStorage.setItem('isLibrary', JSON.stringify(false));
   localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
@@ -36,17 +39,14 @@ function transitToHomePage() {
 myLibraryButtonEl.addEventListener('click', transitToMyLibraryPage);
 
 function transitToMyLibraryPage() {
-  headerEl.classList.remove('header-home');
-  headerEl.classList.add('header-my-library');
-  homeButtonEl.classList.remove('header__link--active');
-  myLibraryButtonEl.classList.add('header__link--active');
-  headerFormEl.classList.remove('header__form');
-  headerFormEl.classList.add('header__form-disable');
-  libraryButtonsBlockEl.classList.remove('library-buttons-block-disable');
-  libraryButtonsBlockEl.classList.add('library-buttons-block');
 
-  watchedButtonEl.classList.add('library-button-active');
-  queueButtonEl.classList.remove('library-button-active');
+  homePageClassSwitcher(headerEl, 'header-home', 'header-my-library');
+  homePageClassSwitcher(headerFormEl, 'header__form', 'header__form-disable');
+  homePageClassSwitcher(libraryButtonsBlockEl, 'library-buttons-block-disable', 'library-buttons-block');
+  homePageClassSwitcher(homeButtonEl, 'header__link--active', null);
+  homePageClassSwitcher(myLibraryButtonEl, null,'header__link--active');
+  homePageClassSwitcher(watchedButtonEl, null, 'library-button-active');
+  homePageClassSwitcher(queueButtonEl, 'library-button-active', null);
   renderWatchedQueueFilms('watched');
   localStorage.setItem('isLibrary', JSON.stringify(true));
 }
@@ -59,15 +59,15 @@ watchedButtonEl.addEventListener('click', showWatched);
 queueButtonEl.addEventListener('click', showQueue);
 
 function showWatched() {
-  watchedButtonEl.classList.add('library-button-active');
-  queueButtonEl.classList.remove('library-button-active');
+  homePageClassSwitcher(watchedButtonEl, null, 'library-button-active');
+  homePageClassSwitcher(queueButtonEl, 'library-button-active', null);
   localStorage.setItem('isWatchedLibrary', JSON.stringify(true));
   renderWatchedQueueFilms('watched');
 }
 
 function showQueue() {
-  queueButtonEl.classList.add('library-button-active');
-  watchedButtonEl.classList.remove('library-button-active');
+  homePageClassSwitcher(queueButtonEl, null, 'library-button-active');
+  homePageClassSwitcher(watchedButtonEl, 'library-button-active', null);
   localStorage.setItem('isWatchedLibrary', JSON.stringify(false));
   renderWatchedQueueFilms('queue');
 }
