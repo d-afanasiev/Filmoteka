@@ -23,15 +23,13 @@
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
-    "sass": "^1.32.8",
-    "tui-pagination": "^3.4.1"
+    "sass": "^1.32.8"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "body-scroll-lock": "^4.0.0-beta.0",
-    "lodash.debounce": "^4.0.8",
-    "micromodal": "^0.4.6",
     "notiflix": "^3.0.1",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "tui-pagination": "^3.4.1"
   }
 }
