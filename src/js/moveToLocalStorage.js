@@ -11,14 +11,14 @@ function addToLibaryWatch() {
       let answer = response.data;
       if (e.target.textContent === 'add to Watched') {
         save('watched', answer);
-        refreshPage('watched');
+        refreshPage();
         e.target.textContent = 'remove from Watched';
         onButtonWatch.classList.add('modal__button-active');
       } else {
         deleteObj('watched', answer.id);
         e.target.textContent = 'add to Watched';
         onButtonWatch.classList.remove('modal__button-active');
-        refreshPage('watched');
+        refreshPage();
       }
     });
   }
@@ -33,14 +33,14 @@ function addToLibaryQueue() {
       let answer = response.data;
       if (e.target.textContent === 'add to Queue') {
         save('queue', answer);
-        refreshPage('queue');
+        refreshPage();
         e.target.textContent = 'remove from Queue';
         onButtonQueue.classList.add('modal__button-active');
       } else {
         deleteObj('queue', answer.id);
         e.target.textContent = 'add to Queue';
         onButtonQueue.classList.remove('modal__button-active');
-        refreshPage('queue');
+        refreshPage();
       }
     });
   }
