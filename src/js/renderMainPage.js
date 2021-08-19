@@ -17,12 +17,14 @@ import { refs } from './refs';
 
 export let pageNumber = 1;
 setContainerHidden(true);
-let inputValue;
+
+let inputValue = null;
+
 const { filmList, search } = refs;
 //*
 
 function genresIdConverter(el) {
-  if (el.genre_ids.length === 0) {
+  if (!el.genre_ids.length) {
     return (el.genre_ids = 'Other');
   }
   el.genre_ids = el.genre_ids
