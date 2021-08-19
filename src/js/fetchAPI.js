@@ -26,7 +26,9 @@ export async function fetchTrendFilm() {
 export function fetchMovieId(movieId) {
   const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
 
-  return axios.get(url);
+  const response = axios.get(url);
+
+  return response;
 }
 
 // initial code

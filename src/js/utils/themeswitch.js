@@ -19,20 +19,25 @@ function chekLocalstorage() {
 chekLocalstorage();
 
 function onCheked(event) {
-  manageDarkTheme(checkBox.checked);
-}
+  if (checkBox.checked) {
+    document.body.classList.remove('light-theme');
+    footer.classList.remove('light-theme');
+    modal.classList.remove('light-theme');
+    document.body.classList.add('dark-theme');
+    footer.classList.add('dark-theme');
+    modal.classList.add('dark-theme');
+    localStorage.setItem('Theme', 'DARK');
+    localStorage.setItem('cheked', 'true');
+    checkBox.checked = true;
+    return;
+  }
 
-function manageDarkTheme(isItTimeToMakeDarkTheme) {
-  const classToRemove = isItTimeToMakeDarkTheme ? 'light-theme' : 'dark-theme';
-  const classToAdd = isItTimeToMakeDarkTheme ? 'dark-theme' : 'light-theme';
-
-  document.body.classList.remove(classToRemove);
-  footer.classList.remove(classToRemove);
-  modal.classList.remove(classToRemove);
-  document.body.classList.add(classToAdd);
-  footer.classList.add(classToAdd);
-  modal.classList.add(classToAdd);
-
-  localStorage.setItem('Theme', isItTimeToMakeDarkTheme ? 'DARK' : 'LIGHT');
-  localStorage.setItem('cheked', isItTimeToMakeDarkTheme);
+  document.body.classList.remove('dark-theme');
+  footer.classList.remove('dark-theme');
+  modal.classList.remove('dark-theme');
+  document.body.classList.add('light-theme');
+  footer.classList.add('light-theme');
+  modal.classList.add('light-theme');
+  localStorage.setItem('Theme', 'LIGHT');
+  localStorage.setItem('cheked', 'false');
 }
