@@ -73,6 +73,9 @@ body.dark-theme {
   align-items: center;
   margin-right: -40px;
   margin-bottom: 4px;
+  @media screen and (max-width: 767px) {
+    margin-right: -18px;
+  }
 }
 
 .theme-switch__icon {
