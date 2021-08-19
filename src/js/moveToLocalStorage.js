@@ -4,7 +4,7 @@ import { save, deleteObj, refreshPage } from './actionWithLS';
 function addToLibaryWatch() {
   const onButtonWatch = document.querySelector('.modal__button-add');
   onButtonWatch.addEventListener('click', watch);
-
+}
   function watch(e) {
     let filmId = e.target.dataset.movieId;
     fetchMovieId(filmId).then(response => {
@@ -22,7 +22,7 @@ function addToLibaryWatch() {
       }
     });
   }
-}
+
 
 function addToLibaryQueue() {
   const onButtonQueue = document.querySelector('.modal__button-add-queue');
@@ -30,7 +30,7 @@ function addToLibaryQueue() {
 
   function queue(e) {
     let filmId = e.target.dataset.movieId;
-
+  }
     fetchMovieId(filmId).then(response => {
       let answer = response.data;
       if (e.target.textContent === 'add to Queue') {
@@ -46,6 +46,6 @@ function addToLibaryQueue() {
       }
     });
   }
-}
+
 
 export default { addToLibaryWatch, addToLibaryQueue };
