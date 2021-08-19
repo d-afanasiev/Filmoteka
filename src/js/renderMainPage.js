@@ -4,6 +4,8 @@ import { fetchTrendFilm, fetchSearchFilm } from './fetchAPI';
 import genreList from './json/genres.json';
 import Spinner from './utils/spinner';
 import { initLocalStorage } from './actionWithLS';
+import nProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 //*for pagination*
 import Pagination from 'tui-pagination';
@@ -48,7 +50,8 @@ export function renderFilm() {
   filmList.innerHTML = '';
   pageNumber = 1;
 
-  spinner.show();
+  nProgress.start();
+  // spinner.show();
   fetchTrendFilm()
     .then(r => {
       r.results.map(el => {
@@ -65,6 +68,7 @@ export function renderFilm() {
         setContainerHidden(false);
         myPagination.on('afterMove', function (eventData) {
           pageNumber = eventData.page;
+          nProgress.start();
           fetchTrendFilm().then(r => {
             r.results.map(el => {
               genresIdConverter(el);
@@ -72,6 +76,7 @@ export function renderFilm() {
             });
 
             filmList.innerHTML = hbs(r.results);
+            nProgress.done();
           });
         });
       }
@@ -80,7 +85,10 @@ export function renderFilm() {
     .catch(error =>
       Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
     )
-    .finally(() => spinner.hide());
+    .finally(() => {
+      nProgress.done();
+      // spinner.hide()
+    });
 }
 
 initLocalStorage();
@@ -92,7 +100,8 @@ async function searchFilm(e) {
   inputValue = e.currentTarget.firstElementChild.value.trim();
 
   const spinner = new Spinner({ message: 'Loading....' });
-  spinner.show();
+  nProgress.start();
+  // spinner.show();
   try {
     if (!inputValue) {
       await fetchTrendFilm().then(r => {
@@ -159,6 +168,7 @@ async function searchFilm(e) {
   } catch (error) {
     Notiflix.Notify.failure(error);
   } finally {
-    spinner.hide();
+    nProgress.done();
+    // spinner.hide();
   }
 }

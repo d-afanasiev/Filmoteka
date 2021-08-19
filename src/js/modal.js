@@ -27,6 +27,8 @@ function onClick(e) {
   if (e.target.classList.value === 'film-list__img') {
     fetchMovieId(movieId)
       .then(response => {
+        const spinner = new Spinner({ element: '.modal', message: 'Loading....' });
+        spinner.show();
         modalMovie.innerHTML = markup(response.data);
         watchButton();
         queueButton();
@@ -61,6 +63,7 @@ function onClick(e) {
 
         storageLibraryMovies.addToLibaryWatch();
         storageLibraryMovies.addToLibaryQueue();
+        spinner.hide();
       })
       .catch(error =>
         Notiflix.Notify.failure('Search result not successful. Enter the correct movie name and '),
@@ -71,7 +74,7 @@ function onClick(e) {
 }
 
 function openModal(e) {
-  closeModal();
+  // closeModal();
   modalMovie.innerHTML = '';
   modalWindow.classList.add('is-open');
   window.addEventListener('keydown', onCloseModalKey);
