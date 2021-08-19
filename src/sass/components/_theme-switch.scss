@@ -36,11 +36,9 @@ body.dark-theme {
       background-color: #3c4242;
       color: white;
     }
-    & .team-list__item {
-      background-color: #000000;
-    }
     & .teammate {
-      background-color: #000000;
+      background-color: #222222;
+      box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
     }
     & .social__icon--github {
       background-image: url('../../src/images/github-rev.svg');
@@ -50,9 +48,6 @@ body.dark-theme {
     }
     & .social__icon--email {
       background-image: url('../../src/images/email-rev.svg');
-    }
-    & .team-list__item {
-      box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
     }
   }
 
