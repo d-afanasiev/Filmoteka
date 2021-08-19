@@ -8,7 +8,10 @@
     },
     "name": "dmitriy-afanasiev",
     "role": "team lead",
-    "socials": [{ "type": "github", "url": "https://github.com/d-afanasiev" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/d-afanasiev" },
+      { "type": "email", "url": "afanasiev.dimon@outlook.com" }
+    ]
   },
   {
     "id": 2,
@@ -32,7 +35,10 @@
     },
     "name": "aleksandr-seleznyov",
     "role": "developer",
-    "socials": [{ "type": "github", "url": "https://github.com/AlexandrSeleznyov" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/AlexandrSeleznyov" },
+      { "type": "email", "url": "vuavso16@gmail.com" }
+    ]
   },
   {
     "id": 4,
@@ -42,7 +48,11 @@
     },
     "name": "marian-moskal",
     "role": "developer",
-    "socials": [{ "type": "github", "url": "https://github.com/MarianMoskal" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/MarianMoskal" },
+      { "type": "linkedin", "url": "http://linkedin.com/in/marian-moskal-620013144" },
+      { "type": "email", "url": "mmm198707@yahoo.com" }
+    ]
   },
   {
     "id": 5,
@@ -52,7 +62,10 @@
     },
     "name": "alex-tvardievich",
     "role": "developer",
-    "socials": [{ "type": "github", "url": "https://github.com/AlexTvardGit" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/AlexTvardGit" },
+      { "type": "email", "url": "alextvardievich@gmail.com" }
+    ]
   },
   {
     "id": 6,
@@ -62,7 +75,11 @@
     },
     "name": "kostia-chaikovskiy",
     "role": "developer",
-    "socials": [{ "type": "github", "url": "https://github.com/k4mmm" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/k4mmm" },
+      { "type": "linkedin", "url": "https://www.linkedin.com/in/konstantin-chaikovskyi-k4mm/" },
+      { "type": "email", "url": "chaichka175@gmail.com" }
+    ]
   },
   {
     "id": 7,
@@ -72,7 +89,11 @@
     },
     "name": "artem-loshkarov",
     "role": "developer",
-    "socials": [{ "type": "github", "url": "https://github.com/Troj94" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/Troj94" },
+      { "type": "linkedin", "url": "https://www.linkedin.com/in/artem-loshkarov-a6b221107/" },
+      { "type": "email", "url": "Troj94@gmail.com" }
+    ]
   },
   {
     "id": 8,
@@ -82,6 +103,10 @@
     },
     "name": "maksym-chyshko",
     "role": "developer",
-    "socials": [{ "type": "github", "url": "https://github.com/Maks2090" }]
+    "socials": [
+      { "type": "github", "url": "https://github.com/Maks2090" },
+      { "type": "linkedin", "url": "https://www.linkedin.com/in/maksym-chyshko-aa77b4203" },
+      { "type": "email", "url": "borchik5555@gmail.com" }
+    ]
   }
 ]
