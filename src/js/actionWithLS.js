@@ -2,11 +2,11 @@ import { renderWatchedQueueFilms } from "./renderWatchedQueue";
 
 export function initLocalStorage() {
     if (localStorage.getItem('watched') === "" || localStorage.getItem('watched') === null) {
-        localStorage.setItem('watched', '[]');
+        localStorage.setItem('watched', JSON.stringify([]));
     }
 
     if (localStorage.getItem('queue') === "" || localStorage.getItem('queue') === null) {
-        localStorage.setItem('queue', '[]');
+        localStorage.setItem('queue', JSON.stringify([]));
     }
 
     localStorage.setItem('isLibrary', JSON.stringify(false));
@@ -89,7 +89,7 @@ export function deleteObj(key, value) {
 
 export function deleteArray(key) {
     try {
-        localStorage.setItem(key, '[]');
+        localStorage.setItem(key, JSON.stringify([]));
     }
     catch (error) {
         console.error("Remove state error: ", error.message);

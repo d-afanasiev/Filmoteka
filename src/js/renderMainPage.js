@@ -13,18 +13,17 @@ import { opt } from './pagination';
 import { pagination } from './pagination';
 import { myPagination } from './pagination';
 import { setContainerHidden } from './pagination';
-import { refs } from './refs';
-
 export let pageNumber = 1;
 setContainerHidden(true);
-
-let inputValue = null;
-
-const { filmList, search } = refs;
+let inputValue;
 //*
 
+import { refs } from './refs';
+
+const { filmList, search } = refs;
+
 function genresIdConverter(el) {
-  if (!el.genre_ids.length) {
+  if (el.genre_ids.length === 0) {
     return (el.genre_ids = 'Other');
   }
   el.genre_ids = el.genre_ids
