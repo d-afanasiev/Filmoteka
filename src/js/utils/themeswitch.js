@@ -25,7 +25,6 @@ function onCheked(event) {
 function manageDarkTheme(isItTimeToMakeDarkTheme) {
   const classToRemove = isItTimeToMakeDarkTheme ? 'light-theme' : 'dark-theme';
   const classToAdd = isItTimeToMakeDarkTheme ? 'dark-theme' : 'light-theme';
-  // const localStorageValue = isItTimeToMakeDarkTheme ? 'DARK' : 'LIGHT';
 
   document.body.classList.remove(classToRemove);
   footer.classList.remove(classToRemove);
