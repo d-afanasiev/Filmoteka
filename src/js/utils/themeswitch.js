@@ -11,13 +11,21 @@ modal = document.querySelector(".modal");
 function chekLocalstorage() {
   if (localStorage.getItem("cheked") === "true") {
    checkBox.checked = true;
-    document.body.classList.add("dark-theme");
-    footer.classList.add("dark-theme");
-    modal.classList.add("dark-theme");
+   addTheme(Theme.DARK);
      }
 }
       chekLocalstorage();
 
+function addTheme(theme){
+  document.body.classList.add(theme);
+  footer.classList.add(theme);
+  modal.classList.add(theme);
+}
+function removeTheme(theme){
+  document.body.classList.remove(theme);
+  footer.classList.remove(theme);
+  modal.classList.remove(theme);
+}
 
 
 function onCheked(event){
@@ -25,26 +33,17 @@ function onCheked(event){
   
        
     if (checkBox.checked) {
-      document.body.classList.remove("light-theme");
-      footer.classList.remove("light-theme");
-      modal.classList.remove("light-theme");
-      document.body.classList.add("dark-theme");
-      footer.classList.add("dark-theme");
-      modal.classList.add("dark-theme");
-
-      localStorage.setItem("Theme", "DARK");
+      removeTheme(Theme.LIGHT);
+      addTheme(Theme.DARK);
+    localStorage.setItem("Theme", "DARK");
     localStorage.setItem("cheked", "true");
     checkBox.checked = true;
-
+    
       return;
     }
 
-    document.body.classList.remove("dark-theme");
-    footer.classList.remove("dark-theme");
-    modal.classList.remove("dark-theme");
-    document.body.classList.add("light-theme");
-    footer.classList.add("light-theme");
-    modal.classList.add("light-theme");
+    removeTheme(Theme.DARK);
+    addTheme(Theme.LIGHT);
     localStorage.setItem("Theme", "LIGHT");
     localStorage.setItem("cheked", "false");
    }
