@@ -43,15 +43,13 @@ body.dark-theme {
       background-color: #000000;
     }
     & .social__icon--github {
-      background-color: white;
-      border-radius: 50%;
+      background-image: url('../../src/images/github-rev.svg');
     }
     & .social__icon--linkedin {
-      background-color: #ffffff;
-      border-radius: 5px;
+      background-image: url('../../src/images/linkedin-rev.svg');
     }
     & .social__icon--email {
-      background-color: #ffffff;
+      background-image: url('../../src/images/email-rev.svg');
     }
     & .team-list__item {
       box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
