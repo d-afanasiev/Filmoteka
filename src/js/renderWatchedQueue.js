@@ -8,10 +8,10 @@ import { itemsPerPage, opt } from './pagination';
 import { pagination } from './pagination';
 import { myPagination } from './pagination';
 import { setContainerHidden } from './pagination';
+import { refs } from './refs';
+
 let functionKey = '';
 //*
-
-import { refs } from './refs';
 
 const { filmList } = refs;
 
