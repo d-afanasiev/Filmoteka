@@ -1,4 +1,4 @@
-import hbs from '../templates/cardMainPage.hbs';
+import hbs from '../templates/cardLibrary.hbs';
 import Notiflix from 'notiflix';
 import { load } from './actionWithLS';
 import genreList from './json/genres.json';
