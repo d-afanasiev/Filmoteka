@@ -36,11 +36,9 @@ body.dark-theme {
       background-color: #3c4242;
       color: var(--main-color);
     }
-    & .team-list__item {
-      background-color: var(--main-text-color);
-    }
+
     & .teammate {
-      background-color: var(--main-text-color);
+      background-color: rgb(16, 16, 16);
     }
     & .social__icon--github {
       background-image: url('../../src/images/github-rev.svg');
