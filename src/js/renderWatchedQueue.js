@@ -53,8 +53,6 @@ export function renderWatchedQueueFilms(key) {
   setContainerHidden(true);
 
   if (filmsArray.length > 0) {
-    renderFilmsPerPage(opt.page);
-
     filmsArray.map(el => {
       genresIdConverter(el);
       sliceDate(el);
@@ -63,6 +61,8 @@ export function renderWatchedQueueFilms(key) {
     filmsArray.map(el => {
       delete Object.assign(el, { genre_ids: el.genres });
     });
+
+    renderFilmsPerPage(opt.page);
 
     // *for pagination *
     opt.totalItems = filmsArray.length;
