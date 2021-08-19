@@ -13,14 +13,15 @@ import { opt } from './pagination';
 import { pagination } from './pagination';
 import { myPagination } from './pagination';
 import { setContainerHidden } from './pagination';
-export let pageNumber = 1;
-setContainerHidden(true);
-let inputValue = null;
-//*
-
 import { refs } from './refs';
 
+export let pageNumber = 1;
+setContainerHidden(true);
+
+let inputValue = null;
+
 const { filmList, search } = refs;
+//*
 
 function genresIdConverter(el) {
   if (!el.genre_ids.length) {
