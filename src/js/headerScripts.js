@@ -24,10 +24,13 @@ function homePageClassSwitcher(element, oldClass, newClass) {
 }
 
 function transitToHomePage() {
-
   homePageClassSwitcher(headerEl, 'header-my-library', 'header-home');
   homePageClassSwitcher(headerFormEl, 'header__form-disable', 'header__form');
-  homePageClassSwitcher(libraryButtonsBlockEl, 'library-buttons-block', 'library-buttons-block-disable');
+  homePageClassSwitcher(
+    libraryButtonsBlockEl,
+    'library-buttons-block',
+    'library-buttons-block-disable',
+  );
   homePageClassSwitcher(homeButtonEl, null, 'header__link--active');
   homePageClassSwitcher(myLibraryButtonEl, 'header__link--active', null);
   renderFilm();
@@ -39,12 +42,15 @@ function transitToHomePage() {
 myLibraryButtonEl.addEventListener('click', transitToMyLibraryPage);
 
 function transitToMyLibraryPage() {
-
   homePageClassSwitcher(headerEl, 'header-home', 'header-my-library');
   homePageClassSwitcher(headerFormEl, 'header__form', 'header__form-disable');
-  homePageClassSwitcher(libraryButtonsBlockEl, 'library-buttons-block-disable', 'library-buttons-block');
+  homePageClassSwitcher(
+    libraryButtonsBlockEl,
+    'library-buttons-block-disable',
+    'library-buttons-block',
+  );
   homePageClassSwitcher(homeButtonEl, 'header__link--active', null);
-  homePageClassSwitcher(myLibraryButtonEl, null,'header__link--active');
+  homePageClassSwitcher(myLibraryButtonEl, null, 'header__link--active');
   homePageClassSwitcher(watchedButtonEl, null, 'library-button-active');
   homePageClassSwitcher(queueButtonEl, 'library-button-active', null);
   renderWatchedQueueFilms('watched');

@@ -1,44 +1,3 @@
-.header-home {
-  height: 230px;
-  background-size: cover;
-  padding-top: 10px;
-  padding-bottom: 59px;
-
-  @media screen and (min-width: 320px) {
-    background-image: url('../images/Home-320.jpg');
-  }
-
-  @media screen and (min-width: 768px) {
-    background-image: url('../images/Home-768.jpg');
-  }
-
-  @media screen and (min-width: 1024px) {
-    background-image: url('../images/Home-1024.jpg');
-  }
-}
-
-@media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .header-home {
-    height: 230px;
-    background-size: cover;
-
-    @media screen and (min-width: 320px) {
-      background-image: url('../images/Home-320x2.jpg');
-    }
-
-    @media screen and (min-width: 768px) {
-      background-image: url('../images/Home-768x2.jpg');
-    }
-
-    @media screen and (min-width: 1024px) {
-      background-image: url('../images/Home-1024x2.jpg');
-    }
-  }
-}
-
 .header-my-library {
   height: 230px;
   background-size: cover;
@@ -76,6 +35,47 @@
 
     @media screen and (min-width: 1024px) {
       background-image: url('../images/Library-1024x2.jpg');
+    }
+  }
+}
+
+.header-home {
+  height: 230px;
+  background-size: cover;
+  padding-top: 10px;
+  padding-bottom: 59px;
+
+  @media screen and (min-width: 320px) {
+    background-image: url('../images/Home-320.jpg');
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url('../images/Home-768.jpg');
+  }
+
+  @media screen and (min-width: 1024px) {
+    background-image: url('../images/Home-1024.jpg');
+  }
+}
+
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .header-home {
+    height: 230px;
+    background-size: cover;
+
+    @media screen and (min-width: 320px) {
+      background-image: url('../images/Home-320x2.jpg');
+    }
+
+    @media screen and (min-width: 768px) {
+      background-image: url('../images/Home-768x2.jpg');
+    }
+
+    @media screen and (min-width: 1024px) {
+      background-image: url('../images/Home-1024x2.jpg');
     }
   }
 }
