@@ -19,6 +19,7 @@ main {
 .lightbox.is-open {
   opacity: 1;
   pointer-events: initial;
+  display: block;
 
   //*for body no-scroll *
   z-index: 2;
@@ -76,7 +77,7 @@ main {
   transform: translate(-50%, -50%) scale(1);
   z-index: 10;
   width: 280px;
-  min-height: 700px;
+  // min-height: 700px;
   height: auto;
   background-color: var(--main-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -85,14 +86,14 @@ main {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
+  overflow: auto;
 
   @media screen and (max-width: 767px) {
     height: 80vh;
-    overflow: auto;
   }
 
   @media screen and (min-width: 768px) {
-    min-height: 548px;
+    min-height: 450px;
     width: 618px;
   }
 
@@ -184,7 +185,7 @@ main {
   color: var(--main-color);
 }
 
-.modal__value-avarage-margin{
+.modal__value-avarage-margin {
   margin-left: 10px;
 }
 
