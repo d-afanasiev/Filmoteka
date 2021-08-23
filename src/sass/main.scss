@@ -6,6 +6,7 @@
 // Стили для файла с примером HTML-фрагмента
 @import 'tui-pagination/dist/tui-pagination.min';
 @import './utils/common';
+@import 'nprogress/nprogress.css';
 @import './components/header';
 @import './components/cards-movies';
 @import './components/pagination';

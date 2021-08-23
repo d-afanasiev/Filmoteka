@@ -5,7 +5,6 @@ import genreList from './json/genres.json';
 import Spinner from './utils/spinner';
 import { initLocalStorage } from './actionWithLS';
 import nProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 
 //*for pagination*
 import Pagination from 'tui-pagination';
