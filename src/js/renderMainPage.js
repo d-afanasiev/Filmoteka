@@ -6,7 +6,6 @@ import Spinner from './utils/spinner';
 import { initLocalStorage } from './actionWithLS';
 import nProgress from 'nprogress';
 
-
 //*for pagination*
 import Pagination from 'tui-pagination';
 import { opt } from './pagination';
