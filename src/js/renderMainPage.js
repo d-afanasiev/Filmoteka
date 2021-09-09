@@ -5,7 +5,7 @@ import genreList from './json/genres.json';
 import Spinner from './utils/spinner';
 import { initLocalStorage } from './actionWithLS';
 import nProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+
 
 //*for pagination*
 import Pagination from 'tui-pagination';
@@ -149,21 +149,6 @@ async function searchFilm(e) {
           }
           //*
         }
-
-        // if (r.total_results === 0) {
-        //   Notiflix.Notify.failure(
-        //     'Search result not successful. Enter the correct movie name.'
-        //   );
-        //   filmList.innerHTML = '';
-        // }
-        // else {
-        //   r.results.map(el => {
-        //     genresIdConverter(el);
-        //     sliceDate(el);
-        //   });
-        //   filmList.innerHTML = hbs(r.results);
-        //   Notiflix.Notify.success('Successful search');
-        // }
       });
     }
   } catch (error) {

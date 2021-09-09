@@ -38,17 +38,3 @@ export function pagination() {
   return myPagination;
 }
 
-// myPagination.on('beforeMove', function(eventData) {
-//   var currentPage = eventData.page;
-
-//   if (currentPage === 10) {
-// //     return false;
-// //     return true;
-//         console.log('yeah');
-//   }
-// });
-
-// myPagination.on('afterMove', function (eventData) {
-//   var currentPage = eventData.page;
-//   console.log(currentPage);
-// });

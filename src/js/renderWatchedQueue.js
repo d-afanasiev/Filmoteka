@@ -37,13 +37,13 @@ function sliceDate(el) {
   }
 }
 
-export function renderWatchedQueueFilms(key) {
-  function renderFilmsPerPage(page) {
-    let startFrom = (page - 1) * itemsPerPage;
-    let endOn = startFrom + itemsPerPage;
-    filmList.innerHTML = hbs(filmsArray.slice(startFrom, endOn));
-  }
+function renderFilmsPerPage(page) {
+  let startFrom = (page - 1) * itemsPerPage;
+  let endOn = startFrom + itemsPerPage;
+  filmList.innerHTML = hbs(filmsArray.slice(startFrom, endOn));
+}
 
+export function renderWatchedQueueFilms(key) {
   if (key !== functionKey) {
     opt.page = 1;
   }
