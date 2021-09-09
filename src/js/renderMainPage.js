@@ -148,21 +148,6 @@ async function searchFilm(e) {
           }
           //*
         }
-
-        // if (r.total_results === 0) {
-        //   Notiflix.Notify.failure(
-        //     'Search result not successful. Enter the correct movie name.'
-        //   );
-        //   filmList.innerHTML = '';
-        // }
-        // else {
-        //   r.results.map(el => {
-        //     genresIdConverter(el);
-        //     sliceDate(el);
-        //   });
-        //   filmList.innerHTML = hbs(r.results);
-        //   Notiflix.Notify.success('Successful search');
-        // }
       });
     }
   } catch (error) {
