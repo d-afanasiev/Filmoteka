@@ -6,7 +6,7 @@ export function initLocalStorage() {
   }
 
   if (localStorage.getItem('queue') === '' || localStorage.getItem('queue') === null) {
-    llocalStorage.setItem('queue', '[]');
+    localStorage.setItem('queue', '[]');
   }
 
   localStorage.setItem('isLibrary', JSON.stringify(false));
