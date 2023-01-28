@@ -58,7 +58,11 @@ export function renderFilm() {
         genresIdConverter(el);
         sliceDate(el);
       });
-      filmList.innerHTML = hbs(r.results);
+      const fullResult = r.results.map((result) => {
+        const vote_average = result.vote_average.toFixed(1)
+        return {...result, vote_average}
+      })
+      filmList.innerHTML = hbs(fullResult);
 
       //*for pagination*
       opt.totalItems = r.total_results;
@@ -74,8 +78,11 @@ export function renderFilm() {
               genresIdConverter(el);
               sliceDate(el);
             });
-
-            filmList.innerHTML = hbs(r.results);
+            const fullResult = r.results.map((result) => {
+              const vote_average = result.vote_average.toFixed(1)
+              return {...result, vote_average}
+            })
+            filmList.innerHTML = hbs(fullResult);
             nProgress.done();
           });
         });
@@ -109,7 +116,11 @@ async function searchFilm(e) {
           genresIdConverter(el);
           sliceDate(el);
         });
-        filmList.innerHTML = hbs(r.results);
+        const fullResult = r.results.map((result) => {
+          const vote_average = result.vote_average.toFixed(1)
+          return {...result, vote_average}
+        })
+        filmList.innerHTML = hbs(fullResult);
         return;
       });
     } else {
@@ -123,7 +134,11 @@ async function searchFilm(e) {
             genresIdConverter(el);
             sliceDate(el);
           });
-          filmList.innerHTML = hbs(r.results);
+          const fullResult = r.results.map((result) => {
+            const vote_average = result.vote_average.toFixed(1)
+            return {...result, vote_average}
+          })
+          filmList.innerHTML = hbs(fullResult);
           Notiflix.Notify.success('Successful search');
 
           //*for pagination*
@@ -141,8 +156,11 @@ async function searchFilm(e) {
                   genresIdConverter(el);
                   sliceDate(el);
                 });
-
-                filmList.innerHTML = hbs(r.results);
+                const fullResult = r.results.map((result) => {
+                  const vote_average = result.vote_average.toFixed(1)
+                  return {...result, vote_average}
+                })
+                filmList.innerHTML = hbs(fullResult);
               });
             });
           }

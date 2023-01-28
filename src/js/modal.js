@@ -29,7 +29,9 @@ function onClick(e) {
       .then(response => {
         const spinner = new Spinner({ element: '.modal', message: 'Loading....' });
         spinner.show();
-        modalMovie.innerHTML = markup(response.data);
+        const vote_average = response.data.vote_average.toFixed(1);
+        const fullResult = {...response.data, vote_average}
+        modalMovie.innerHTML = markup(fullResult);
         watchButton();
         queueButton();
 
