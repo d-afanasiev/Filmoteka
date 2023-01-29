@@ -83,6 +83,10 @@ export function renderFilm() {
               return {...result, vote_average}
             })
             filmList.innerHTML = hbs(fullResult);
+            refs.headerHome.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
             nProgress.done();
           });
         });
