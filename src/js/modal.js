@@ -27,10 +27,20 @@ function onClick(e) {
   if (e.target.classList.value === 'film-list__img') {
     fetchMovieId(movieId)
       .then(response => {
-        const spinner = new Spinner({ element: '.modal', message: 'Loading....' });
+        let spinner;
+        if (localStorage.getItem('Theme') === 'DARK') {
+          spinner = new Spinner({
+            element: '.modal',
+            message: 'Loading....',
+            backgroundColor: '#3c4242',
+            messageColor: '#FFFFFF',
+          });
+        } else {
+          spinner = new Spinner({ element: '.modal', message: 'Loading....' });
+        }
         spinner.show();
         const vote_average = response.data.vote_average.toFixed(1);
-        const fullResult = {...response.data, vote_average}
+        const fullResult = { ...response.data, vote_average };
         modalMovie.innerHTML = markup(fullResult);
         watchButton();
         queueButton();
