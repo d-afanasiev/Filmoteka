@@ -1,6 +1,6 @@
 import { renderFilm } from './renderMainPage';
-import Spinner from './utils/spinner';
 import { renderWatchedQueueFilms } from './renderWatchedQueue';
+import nProgress from 'nprogress';
 
 import { refs } from './refs';
 
@@ -42,6 +42,7 @@ function transitToHomePage() {
 myLibraryButtonEl.addEventListener('click', transitToMyLibraryPage);
 
 function transitToMyLibraryPage() {
+  nProgress.start();
   homePageClassSwitcher(headerEl, 'header-home', 'header-my-library');
   homePageClassSwitcher(headerFormEl, 'header__form', 'header__form-disable');
   homePageClassSwitcher(
@@ -55,6 +56,7 @@ function transitToMyLibraryPage() {
   homePageClassSwitcher(queueButtonEl, 'library-button-active', null);
   renderWatchedQueueFilms('watched');
   localStorage.setItem('isLibrary', JSON.stringify(true));
+  nProgress.done();
 }
 
 logoBlockEl.addEventListener('click', transitToHomePage);
