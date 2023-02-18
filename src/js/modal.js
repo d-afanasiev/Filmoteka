@@ -25,20 +25,20 @@ function onClick(e) {
 
   const movieId = activeImg.dataset.id;
   if (e.target.classList.value === 'film-list__img') {
+    let spinner;
+    if (localStorage.getItem('Theme') === 'DARK') {
+      spinner = new Spinner({
+        element: '.modal',
+        message: 'Loading....',
+        backgroundColor: '#3c4242',
+        messageColor: '#FFFFFF',
+      });
+    } else {
+      spinner = new Spinner({ element: '.modal', message: 'Loading....' });
+    }
+    spinner.show();
     fetchMovieId(movieId)
       .then(response => {
-        let spinner;
-        if (localStorage.getItem('Theme') === 'DARK') {
-          spinner = new Spinner({
-            element: '.modal',
-            message: 'Loading....',
-            backgroundColor: '#3c4242',
-            messageColor: '#FFFFFF',
-          });
-        } else {
-          spinner = new Spinner({ element: '.modal', message: 'Loading....' });
-        }
-        spinner.show();
         const vote_average = response.data.vote_average.toFixed(1);
         const fullResult = { ...response.data, vote_average };
         modalMovie.innerHTML = markup(fullResult);
